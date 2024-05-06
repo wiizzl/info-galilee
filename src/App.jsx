@@ -1,7 +1,7 @@
 import "./css/App.css";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { Outlet, RouterProvider, createHashRouter, useLocation, useRouteError } from "react-router-dom";
+import { Outlet, RouterProvider, createBrowserRouter, useLocation, useRouteError } from "react-router-dom";
 
 import {
     Accueil,
@@ -74,7 +74,7 @@ import {
 } from "./pages";
 import { Footer, Navbar } from "./tools";
 
-const hashRouter = createHashRouter([
+const browserRouter = createBrowserRouter([
     {
         path: "",
         element: <Root />,
@@ -280,5 +280,5 @@ function Root() {
 }
 
 export default function App() {
-    return <RouterProvider router={hashRouter}></RouterProvider>;
+    return <RouterProvider router={browserRouter}></RouterProvider>;
 }
