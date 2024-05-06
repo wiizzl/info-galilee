@@ -1,4 +1,4 @@
-import '../css/Footer.css';
+import "../css/Footer.css";
 
 export function Footer() {
     function formatterDate(date) {
@@ -20,7 +20,7 @@ export function Footer() {
             return "Passez une bonne nuit !";
         }
     }
-    return <>
+    return (
         <footer className="footer">
             <div className="footer-below">
                 <div className="title">
@@ -33,7 +33,7 @@ export function Footer() {
                         <p>&#x1F4C5; Nous sommes le {formatterDate(new Date())}</p>
                         <p>&#x23F0; {saluerEnFonctionDeLHeure()}</p>
                     </div>
-                    <br/>
+                    <br />
                     <a href="https://www.instagram.com/pierre.hlr_/" rel="noreferrer" target="_blank">
                         <p>&#128293; Site fait par Pierre H.</p>
                         <p>&#128218; Elève en T° (2023-2024)</p>
@@ -41,5 +41,5 @@ export function Footer() {
                 </div>
             </div>
         </footer>
-    </>
+    );
 }

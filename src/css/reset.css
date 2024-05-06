@@ -1,47 +1,126 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	vertical-align: baseline;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
 }
 
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
 }
 
 body {
-	line-height: 1;
+    line-height: 1;
 }
 
-blockquote, q {
-	quotes: none;
+blockquote,
+q {
+    quotes: none;
 }
 
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: "";
+    content: none;
 }
 
 table {
     border-collapse: collapse;
-	border-spacing: 0;
+    border-spacing: 0;
 }
 
 td {
@@ -50,32 +129,32 @@ td {
 }
 
 a {
-	text-decoration: none;
-	color: black;
+    text-decoration: none;
+    color: black;
 }
 
 html {
-	font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
 body::-webkit-scrollbar {
-	width: 8px;
-	background-color: var(--second-bg-color);
-	background-attachment: fixed;
-	background-size: cover;
+    width: 8px;
+    background-color: var(--second-bg-color);
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 body::-webkit-scrollbar-thumb {
-	background-color: var(--scrollbar-color);
-	border-radius: 0.5rem;
+    background-color: var(--scrollbar-color);
+    border-radius: 0.5rem;
 }
 
 :root {
-	--scrollbar-color: #2a9d8f;
-	--second-bg-color: #264653;
-	--bg-no-repeat: #051416;
-	--text-color: #e5e5e5;
-	--second-text-color: #f4a261;
-	--main-color: #e9c46a;
-	--second-main-color: #e76f51;
+    --scrollbar-color: #2a9d8f;
+    --second-bg-color: #264653;
+    --bg-no-repeat: #051416;
+    --text-color: #e5e5e5;
+    --second-text-color: #f4a261;
+    --main-color: #e9c46a;
+    --second-main-color: #e76f51;
 }

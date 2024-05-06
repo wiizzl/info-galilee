@@ -1,9 +1,9 @@
-import { MarkdownViewer } from '../tools';
+import { MarkdownViewer } from "../tools";
 
 export function FileReader({ folder, fileName }) {
-    return <>
+    return (
         <main className="md-background">
-            <MarkdownViewer folder={folder} fileName={fileName}/>
+            <MarkdownViewer folder={folder} fileName={fileName} />
         </main>
-    </>
+    );
 }
