@@ -1,0 +1,17 @@
+{
+    "author": [{ "name": "Pierre", "url": "https://www.instagram.com/pierre.hlr_/" }],
+    "sugar": {
+        "title": "Info Galilée",
+        "description": "Un site vous permettant d'accèder aux cours de SI du Lycée Galilée.",
+        "keywords": ["Lycée", "Galilée", "Cours"],
+        "repo": "https://github.com/wiizzl/info-galilee"
+    },
+    "link": [
+        { "title": "Sciences de l'Ingénieur", "href": "cours" },
+        { "title": "Divers", "href": "divers" }
+    ],
+    "socials": [
+        { "title": "Discord", "href": "https://discord.gg/xwEx6btzWQ" },
+        { "title": "Lycée", "href": "https://galilee.lycee.ac-normandie.fr/" }
+    ]
+}
