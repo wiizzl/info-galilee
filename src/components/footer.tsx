@@ -5,7 +5,7 @@ import config from "@/config.json";
 
 export default function Footer() {
     return (
-        <footer className="select-none border-t py-14">
+        <footer className="z-50 select-none border-t py-14">
             <div className="container flex items-end justify-between">
                 <div className="flex flex-col gap-3">
                     <Link href="/" className="flex items-center gap-2">

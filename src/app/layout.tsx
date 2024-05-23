@@ -1,4 +1,5 @@
 import "@/styles/globals.css";
+import "katex/dist/katex.min.css";
 
 import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
@@ -34,7 +35,6 @@ export default function RootLayout({ children }: PropsWithChildren) {
         <html lang="fr" suppressHydrationWarning>
             <head />
             <body className={cn("font-sans antialiased selection:bg-primary/30", fontSans.variable)}>
-                {/* <Header /> */}
                 <main>{children}</main>
                 <Footer />
             </body>

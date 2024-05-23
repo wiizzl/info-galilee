@@ -1,3 +1,14 @@
+import Header from "@/components/header";
+import Posts from "@/components/posts";
+import { Section } from "@/components/section";
+
 export default function Cours() {
-    return <div>Cours</div>;
+    return (
+        <>
+            <Header />
+            <Section>
+                <Posts />
+            </Section>
+        </>
+    );
 }

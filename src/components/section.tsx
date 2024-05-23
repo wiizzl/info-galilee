@@ -1,5 +1,10 @@
+import { cn } from "@/lib/utils";
 import { PropsWithChildren } from "react";
 
-export function Section({ children }: PropsWithChildren) {
-    return <section className="container min-h-screen py-40">{children}</section>;
+type SectionProps = {
+    className?: string;
+} & PropsWithChildren;
+
+export function Section({ children, className }: SectionProps) {
+    return <section className={cn("container min-h-screen ", className)}>{children}</section>;
 }

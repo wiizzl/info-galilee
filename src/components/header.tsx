@@ -1,12 +1,13 @@
 "use client";
 
-import { Bot, ChevronRight, Github, Search } from "lucide-react";
+import { Bot, ChevronRight, Github, Menu, Search } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import { Button, buttonVariants } from "@/components/ui/button";
 import { CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@/components/ui/command";
+import { Sheet, SheetClose, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 
 import config from "@/config.json";
 
@@ -27,7 +28,7 @@ function Command() {
     }, []);
 
     return (
-        <div className="hidden lg:block">
+        <>
             <div>
                 <Button variant="outline" className="p-3" onClick={() => setOpen((open: boolean) => !open)}>
                     <div className="flex gap-14">
@@ -35,7 +36,7 @@ function Command() {
                             <Search size={18} className="text-muted-foreground" />
                             <p className="text-muted-foreground">Rechercher...</p>
                         </div>
-                        <kbd className="inline-flex items-center rounded bg-muted px-1.5 text-muted-foreground">
+                        <kbd className="hidden items-center rounded bg-muted px-1.5 text-muted-foreground md:inline-flex lg:inline-flex">
                             <span className="text-xs">CTRL K</span>
                         </kbd>
                     </div>
@@ -45,7 +46,7 @@ function Command() {
                 <CommandInput placeholder="Entrez une commande ou faites une recherche..." />
                 <CommandList>
                     <CommandEmpty>Aucun résultat trouvé...</CommandEmpty>
-                    <CommandGroup heading="Liens">
+                    <CommandGroup heading="Accueil">
                         {config.link.map((item, index) => (
                             <CommandItem onSelect={() => router.push(`/${item.href}`)} className="flex gap-2" key={index}>
                                 <ChevronRight />
@@ -53,9 +54,45 @@ function Command() {
                             </CommandItem>
                         ))}
                     </CommandGroup>
+                    {config.link.map((item, index) => (
+                        <CommandGroup heading={item.title} key={index}></CommandGroup>
+                    ))}
                 </CommandList>
             </CommandDialog>
-        </div>
+        </>
+    );
+}
+
+function NavDrawer() {
+    return (
+        <Sheet>
+            <SheetTrigger asChild>
+                <Button variant="ghost" size="icon">
+                    <Menu />
+                </Button>
+            </SheetTrigger>
+            <SheetContent side="left">
+                <SheetHeader className="mb-3">
+                    <SheetTitle>
+                        <Link href="/" className="flex items-center gap-2">
+                            <Bot />
+                            <h1 className="whitespace-nowrap text-lg font-bold">{config.sugar.title}</h1>
+                        </Link>
+                    </SheetTitle>
+                </SheetHeader>
+                <div className="ml-8 flex flex-col gap-2">
+                    <div className="flex flex-col gap-1">
+                        {config.link.map((item, index) => (
+                            <SheetClose asChild key={index}>
+                                <Link href={`/${item.href}`} className="font-medium hover:underline">
+                                    {item.title}
+                                </Link>
+                            </SheetClose>
+                        ))}
+                    </div>
+                </div>
+            </SheetContent>
+        </Sheet>
     );
 }
 
@@ -74,14 +111,23 @@ export default function Header() {
     }, []);
 
     return (
-        <header className={`sticky top-0 select-none py-3 ${visible && "border-b bg-background/60 backdrop-blur-md"}`}>
+        <header
+            className={`sticky top-0 z-50 select-none py-3 transition-all ${
+                visible && "border-b bg-background/60 backdrop-blur-md"
+            }`}
+        >
             <div className="container flex items-center justify-between">
                 <div className="flex items-center gap-5 lg:gap-16">
-                    <Link href="/" className="flex items-center gap-2">
-                        <Bot size={28} />
-                        <h1 className="whitespace-nowrap text-sm font-bold md:text-lg lg:text-2xl">{config.sugar.title}</h1>
-                    </Link>
-                    <nav className="flex space-x-3 lg:space-x-8">
+                    <div className="flex items-center">
+                        <div className="block md:hidden lg:hidden">
+                            <NavDrawer />
+                        </div>
+                        <Link href="/" className="hidden items-center gap-2 md:flex lg:flex">
+                            <Bot size={28} />
+                            <h1 className="whitespace-nowrap text-sm font-bold md:text-lg lg:text-2xl">{config.sugar.title}</h1>
+                        </Link>
+                    </div>
+                    <nav className="hidden space-x-5 md:flex lg:flex lg:space-x-8">
                         {config.link.map((item, index: number) => (
                             <Link
                                 href={`/${item.href}`}
