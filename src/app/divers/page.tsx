@@ -1,3 +1,5 @@
+import { Section } from "@/components/section";
+
 export default function Divers() {
-    return <div>Divers</div>;
+    return <Section>Divers</Section>;
 }

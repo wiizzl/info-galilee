@@ -1,4 +1,4 @@
-import { defineDocumentType, makeSource } from "contentlayer2/source-files";
+import { ComputedFields, defineDocumentType, makeSource } from "contentlayer2/source-files";
 
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeKatex from "rehype-katex";
@@ -7,8 +7,8 @@ import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 
-/** @type {import('contentlayer/source-files').ComputedFields} */
-const computedFields = {
+/** @type {import('contentlayer2/source-files').ComputedFields} */
+const computedFields: ComputedFields = {
     slug: {
         type: "string",
         resolve: (doc) => `/${doc._raw.flattenedPath}`,
@@ -82,31 +82,36 @@ export const Terminale = defineDocumentType(() => ({
     computedFields,
 }));
 
+export const Outils = defineDocumentType(() => ({
+    name: "Outils",
+    filePathPattern: `outils/**/*.mdx`,
+    contentType: "mdx",
+    fields: {
+        title: {
+            type: "string",
+            required: true,
+        },
+        description: {
+            type: "string",
+            required: true,
+        },
+        category: {
+            type: "string",
+            required: true,
+        },
+    },
+    computedFields,
+}));
+
 export default makeSource({
     contentDirPath: "src/content",
-    documentTypes: [Seconde, Premiere, Terminale],
+    documentTypes: [Seconde, Premiere, Terminale, Outils],
     mdx: {
         remarkPlugins: [remarkGfm, remarkMath],
         rehypePlugins: [
             rehypeKatex,
             rehypeSlug,
-            [
-                rehypePrettyCode,
-                {
-                    theme: "github-dark",
-                    onVisitLine(node) {
-                        if (node.children.length === 0) {
-                            node.children = [{ type: "text", value: " " }];
-                        }
-                    },
-                    onVisitHighlightedLine(node) {
-                        node.properties.className.push("line--highlighted");
-                    },
-                    onVisitHighlightedWord(node) {
-                        node.properties.className = ["word--highlighted"];
-                    },
-                },
-            ],
+            [rehypePrettyCode, { theme: "github-dark" }],
             [rehypeAutolinkHeadings, { properties: { className: ["anchor"] } }],
         ],
     },

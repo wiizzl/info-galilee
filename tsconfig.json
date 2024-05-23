@@ -29,7 +29,8 @@
         "**/*.tsx",
         ".next/types/**/*.ts",
         ".contentlayer/generated",
-        "contentlayer.config.js"
+        "contentlayer.config.ts",
+        "src/content/outils/python.mdx"
     ],
     "exclude": ["node_modules"]
 }

@@ -2,12 +2,14 @@
 
 import { Bot, ChevronRight, Github, Menu, Search } from "lucide-react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import { Button, buttonVariants } from "@/components/ui/button";
 import { CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@/components/ui/command";
 import { Sheet, SheetClose, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+
+import { cn } from "@/lib/utils";
 
 import config from "@/config.json";
 
@@ -97,6 +99,8 @@ function NavDrawer() {
 }
 
 export default function Header({ solid }: { solid: boolean }) {
+    const pathname = usePathname();
+
     const [visible, setVisible] = useState<boolean>(false);
 
     useEffect(() => {
@@ -131,7 +135,10 @@ export default function Header({ solid }: { solid: boolean }) {
                         {config.link.map((item, index: number) => (
                             <Link
                                 href={`/${item.href}`}
-                                className="text-sm text-muted-foreground transition-all hover:text-accent-foreground/80"
+                                className={cn(
+                                    "text-sm text-muted-foreground transition-all hover:text-accent-foreground/80",
+                                    pathname === `/${item.href}` && "text-accent-foreground/80",
+                                )}
                                 key={index}
                             >
                                 {item.title}
