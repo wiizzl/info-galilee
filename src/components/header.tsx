@@ -56,9 +56,6 @@ function Command() {
                             </CommandItem>
                         ))}
                     </CommandGroup>
-                    {config.link.map((item, index) => (
-                        <CommandGroup heading={item.title} key={index}></CommandGroup>
-                    ))}
                 </CommandList>
             </CommandDialog>
         </>
@@ -82,16 +79,8 @@ function NavDrawer() {
                         </Link>
                     </SheetTitle>
                 </SheetHeader>
-                <div className="ml-8 flex flex-col gap-2">
-                    <div className="flex flex-col gap-1">
-                        {config.link.map((item, index) => (
-                            <SheetClose asChild key={index}>
-                                <Link href={`/${item.href}`} className="font-medium hover:underline">
-                                    {item.title}
-                                </Link>
-                            </SheetClose>
-                        ))}
-                    </div>
+                <div className="ml-8">
+                    <SheetClose asChild></SheetClose>
                 </div>
             </SheetContent>
         </Sheet>

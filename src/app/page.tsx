@@ -35,7 +35,7 @@ export default function Home() {
                         Rendez vos révisions
                     </WordRotate>
                     <p className="text-base text-muted-foreground md:text-lg lg:text-lg">{config.sugar.description}</p>
-                    <div className="flex gap-4">
+                    <div className="flex flex-wrap justify-center gap-4 md:flex-nowrap md:justify-start lg:justify-start">
                         <Link href={`/${config.link[0].href}`} className={buttonVariants()}>
                             Accèder aux cours
                         </Link>
@@ -43,7 +43,7 @@ export default function Home() {
                             Rejoindre le discord
                         </Link>
                     </div>
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center justify-center gap-3 md:justify-start">
                         <Book size={30} className="text-muted-foreground" />
                         <p className="text-xs text-muted-foreground md:text-sm lg:text-sm">
                             Des cours de Seconde, Première et de Terminale !
