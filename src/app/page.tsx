@@ -1,20 +1,20 @@
 import { Book } from "lucide-react";
 import Link from "next/link";
 
+import { Spotlight } from "@/components/aceternity/spotlight";
+import Header from "@/components/header";
 import { WordRotate } from "@/components/magicui/word-rotate";
 import { Section } from "@/components/section";
 import { buttonVariants } from "@/components/ui/button";
 
-import { Spotlight } from "@/components/aceternity/spotlight";
-import Header from "@/components/header";
 import config from "@/config.json";
 
 export default function Home() {
     return (
-        <div className="bg-grid-white/[0.02]">
+        <div className="bg-grid-white/[0.03]">
             <Spotlight className="-top-10 left-60 hidden lg:block" fill="gray" />
-            <Header />
-            <Section className="mt-14 lg:mt-40">
+            <Header solid={false} />
+            <Section className="mt-14 min-h-screen lg:mt-40">
                 <div className="flex flex-col gap-6">
                     <WordRotate
                         className="text-3xl font-bold md:text-5xl lg:text-7xl"

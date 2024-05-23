@@ -5,7 +5,7 @@ import { default as flattenColorPalette } from "tailwindcss/lib/util/flattenColo
 import svgToDataUri from "mini-svg-data-uri";
 
 const config = {
-    content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
+    content: ["./src/**/*.{ts,tsx}"],
     theme: {
         container: {
             center: true,

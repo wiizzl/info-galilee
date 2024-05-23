@@ -96,7 +96,7 @@ function NavDrawer() {
     );
 }
 
-export default function Header() {
+export default function Header({ solid }: { solid: boolean }) {
     const [visible, setVisible] = useState<boolean>(false);
 
     useEffect(() => {
@@ -113,7 +113,7 @@ export default function Header() {
     return (
         <header
             className={`sticky top-0 z-50 select-none py-3 transition-all ${
-                visible && "border-b bg-background/60 backdrop-blur-md"
+                solid ? "border-b bg-background" : visible && "border-b bg-background/60 backdrop-blur-md"
             }`}
         >
             <div className="container flex items-center justify-between">
