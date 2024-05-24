@@ -1,6 +1,7 @@
 "use client";
 
-import { Bot, ChevronRight, Github, Menu, Search } from "lucide-react";
+import { allDocuments } from "contentlayer/generated";
+import { Bot, ChevronRight, Dot, Github, Menu, Search } from "lucide-react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -45,7 +46,7 @@ function Command() {
                 </Button>
             </div>
             <CommandDialog open={open} onOpenChange={setOpen}>
-                <CommandInput placeholder="Entrez une commande ou faites une recherche..." />
+                <CommandInput placeholder="Entrez le contenu de votre recherche..." />
                 <CommandList>
                     <CommandEmpty>Aucun résultat trouvé...</CommandEmpty>
                     <CommandGroup heading="Accueil">
@@ -56,6 +57,22 @@ function Command() {
                             </CommandItem>
                         ))}
                     </CommandGroup>
+                    {Array.from(new Set(allDocuments.map((item) => item.type))).map((item, index) => (
+                        <CommandGroup heading={item} key={index}>
+                            {allDocuments
+                                .filter((doc) => doc.type === item)
+                                .map((item, index) => (
+                                    <CommandItem
+                                        onSelect={() => router.push(`/${config.link[0].href}${item.slug}`)}
+                                        className="flex gap-2"
+                                        key={index}
+                                    >
+                                        <Dot />
+                                        {item.title}
+                                    </CommandItem>
+                                ))}
+                        </CommandGroup>
+                    ))}
                 </CommandList>
             </CommandDialog>
         </>
@@ -70,7 +87,7 @@ function NavDrawer() {
                     <Menu />
                 </Button>
             </SheetTrigger>
-            <SheetContent side="left">
+            <SheetContent className="max-h-screen" side="left">
                 <SheetHeader className="mb-3">
                     <SheetTitle>
                         <Link href="/" className="flex items-center gap-2">
@@ -79,8 +96,25 @@ function NavDrawer() {
                         </Link>
                     </SheetTitle>
                 </SheetHeader>
-                <div className="ml-8">
-                    <SheetClose asChild></SheetClose>
+                <div className="ml-8 flex flex-col gap-8">
+                    {Array.from(new Set(allDocuments.map((item) => item.type))).map((item, index) => (
+                        <div className="flex flex-col gap-1" key={index}>
+                            <h2 className="select-none font-semibold">{item}</h2>
+                            <div className="flex flex-col gap-1">
+                                {allDocuments
+                                    .filter((doc) => doc.type === item)
+                                    .map((item, index) => (
+                                        <SheetClose asChild key={index}>
+                                            <Link href={`/${config.link[0].href}${item.slug}`}>
+                                                <h3 className="text-muted-foreground transition-all hover:ml-1 hover:text-primary/80">
+                                                    {item.title}
+                                                </h3>
+                                            </Link>
+                                        </SheetClose>
+                                    ))}
+                            </div>
+                        </div>
+                    ))}
                 </div>
             </SheetContent>
         </Sheet>

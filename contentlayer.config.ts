@@ -32,10 +32,6 @@ export const Seconde = defineDocumentType(() => ({
             type: "string",
             required: true,
         },
-        category: {
-            type: "string",
-            required: true,
-        },
     },
     computedFields,
 }));
@@ -50,10 +46,6 @@ export const Premiere = defineDocumentType(() => ({
             required: true,
         },
         description: {
-            type: "string",
-            required: true,
-        },
-        category: {
             type: "string",
             required: true,
         },
@@ -74,10 +66,6 @@ export const Terminale = defineDocumentType(() => ({
             type: "string",
             required: true,
         },
-        category: {
-            type: "string",
-            required: true,
-        },
     },
     computedFields,
 }));
@@ -95,10 +83,6 @@ export const Outils = defineDocumentType(() => ({
             type: "string",
             required: true,
         },
-        category: {
-            type: "string",
-            required: true,
-        },
     },
     computedFields,
 }));
@@ -111,7 +95,7 @@ export default makeSource({
         rehypePlugins: [
             rehypeKatex,
             rehypeSlug,
-            [rehypePrettyCode, { theme: "github-dark" }],
+            [rehypePrettyCode, { theme: "one-dark-pro" }],
             [rehypeAutolinkHeadings, { properties: { className: ["anchor"] } }],
         ],
     },

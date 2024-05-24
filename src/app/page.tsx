@@ -30,7 +30,7 @@ export default function Home() {
                             "captivantes",
                             "instructives",
                         ]}
-                        before="10x plus"
+                        before="2x plus"
                     >
                         Rendez vos révisions
                     </WordRotate>
@@ -46,7 +46,7 @@ export default function Home() {
                     <div className="flex items-center justify-center gap-3 md:justify-start">
                         <Book size={30} className="text-muted-foreground" />
                         <p className="text-xs text-muted-foreground md:text-sm lg:text-sm">
-                            Des cours de Seconde, Première et de Terminale !
+                            Des cours de Seconde, de Première et de Terminale !
                         </p>
                     </div>
                 </div>
