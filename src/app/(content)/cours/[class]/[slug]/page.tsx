@@ -19,7 +19,7 @@ export default async function MdxCours({ params }: { params: { slug: string } })
     return (
         <div className="flex flex-col gap-5">
             <div className="flex flex-col gap-2">
-                <h1 className="text-2xl font-semibold">{cours.title}</h1>
+                <h1 className="text-5xl font-semibold">{cours.title}</h1>
                 <p className="text-muted-foreground">{cours.description}</p>
             </div>
             <Mdx code={cours.body.code} />

@@ -3,11 +3,39 @@ title: Internet
 description: Dans ce chapitre, nous allons étudier le principe de fonctionnement d'Internet.
 ---
 
-Internet
+# 1/ Comment fonctionne internet ?
 
-test
-$$x^2 + \sqrt{5}$$
+<Video id="dCknqcjcItU" />
 
-```js
-console.log("test");
+# 2/ Définitions
+
+## Réseau local
+
+Un réseau local est un ensemble de machines reliées entre elles. Pour que ces machines puissent communiquer entre elles, il faut les connecter grâce soit à un support filaire (cable RJ45 par exemple) ou soit par un support aérien de type wifi.
+
+Dans le cas d'un réseau filaire, on connecte les machines entre elles grâce à un switch.
+
+<Image src="https://i.imgur.com/taMNIWk.png" width={500} height={500} />
+
+## Routeur
+
+Un routeur est un équipement matériel informatique dont la fonction principale consiste à orienter les données à travers un réseau. Chez nous, c’est notre box qui sert de routeur (entre autre).
+
+## Le protocole TCP/IP
+
+L’internet est constitué d’un ensemble de règles (protocole) qui permet à chaque ordinateur de communiquer avec d’autres.
+
+Les données sont transportées sur le réseau grâce à plusieurs protocoles :
+
+-   Le protocole **IP** (Internet Protocol) : permet de donner une adresse unique à un ordinateur sur le réseau, appelée adresse IP. Elle se présente sous la forme d’une série de 4 nombres (entre 0 et 255) séparés par des points, par exemple : 76.234.23.121 selon la norme IPV4. Ce protocole se charge de découper le message (textes, images, son, vidéos, etc.) en « paquets » et de les acheminer au destinataire mais sans garantie.
+-   Le protocole **TCP** (Transmission Control Protocol) : S’appuie sur le protocole IP. Il s’assure que le transport des paquets est correctement assuré : il vérifie l’intégrité des données, il en garantit l’ordre et la remise, mais pas le délai de transmission.
+
+## Les adresses IP
+
+Une adresse IP est un numéro attribué à une machine selon l'Internet Protocole (IP). C'est habituellement (pour la version IPV4) une suite de 4 nombre pouvant aller de 0 à 255, séparés par des points.
+
+#### Exemple :
+
+```
+197.168.56.24
 ```

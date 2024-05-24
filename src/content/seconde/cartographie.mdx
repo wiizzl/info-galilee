@@ -3,11 +3,89 @@ title: Cartographie
 description: Dans ce chapitre, nous allons étudier le fonctionnement du GPS, des trames NMEA et du principe de triangulation.
 ---
 
-Cartographie
+# 1/ La géolocalisation: principe de fonctionnement
 
-test
-$$x^2 + \sqrt{5}$$
+La géolocalisation est un procédé qui permet de déterminer la position géographique d’un objet ou d’une personne, fixe ou mobile, à la surface de la Terre. Le système de localisation par satellite fonctionne selon le principe de triangulation : la position de l’objet observé est calculée grâce aux signaux échangés entre le récepteur dont il est équipé et un ensemble d’au moins 3 satellites faisant partie d’une constellation. La mesure de temps de parcours de ces signaux permet d’identifier la longitude, la latitude, et l’altitude de l’objet observé, avec une précision pouvant atteindre les 5 mètres.
 
-```js
-console.log("test");
+<Image src="https://i.imgur.com/2OvLOoq.png" alt="Satellite en orbite" width={500} height={500} />
+
+Nous comptons de nos jours des milliers de satellites en orbite autour de la Terre. Parmi eux, nous pouvons compter les satellites géostationnaires de constellations :
+
+-   GPS (Américain)
+-   GLONASS (Russe)
+-   Galileo (Européen)
+-   BEIDOU (Chinois)
+
+Ces satellites disposent d'horloge atomiques qui fournissent en permanence la datation (heure) précise. Cette information est placée dans le code diffusé par le satellite.
+
+Afin de comprendre comment fonctionne le principe de géolocalisation, nous allons travailler en 2D (2 dimensions). Pour géolocaliser un appareil (par exemple votre téléphone portable), il suffit de 3 sattelites.
+
+## 1er satellite
+
+Supposons que le récepteur GNSS se trouve à 25000km d'un premier satelite donné. Cela signifie que le récepteur GNSS peut se trouver n'importe où sur le cerle de diamère 5 000km, avec le satellite en tant que centre.
+
+<Image src="https://i.imgur.com/Nl3ZVWI.png" alt="1er satellite" width={200} height={200} />
+
+## 2ème satellite
+
+Le boitier va recevoir également un signal d'un second satellite à 20 000km par exemple. Il va en conclure qu'il se trouve
+aussi sur ce cercle. Sa position exacte sera à l'intersection des deux cercles, soit deux possibilités.
+
+<Image src="https://i.imgur.com/vRq5mt4.png" alt="1er satellite" width={200} height={200} />
+
+## 3ème satellite
+
+Afin de déterminer laquelle de ces possibilités est correcte, le dignal d'un troisième satellite est nécessaire. Pour la démonstration, nous allons l'imaginer avec un diamètre de 15 000km.
+
+A l'intersection de ces trois cercles, il n'y a plus qu'un seul point possible dans le plan 2D. Nous venons de géolocaliser notre récepteur !
+
+<Image src="https://i.imgur.com/lPWPisa.png" alt="1er satellite" width={200} height={200} />
+
+Pour passer à la 3D, un 4eme satellite serait donc nécessaire car l'intersection de 3 sphères donne 2 points.
+
+# 2/ Latitude et longitude
+
+## Parallèles et méridiens
+
+Cliquez <Link href="https://www.geogebra.org/m/yclz4v9L" target="_blank">ici</Link> afin de voir une petite animation pour vous aider à comprendre...
+
+## Minute et secondes
+
+Chaque espace entre deux lignes mesure un degré. Ces degrés peuvent être encore divisés en minutes. Imaginez qu'il existe 60 minutes homogènes entre deux lignes de latitude et deux lignes de longitude. Vous pouvez trouver des cartes sur Internet qui vous aideront à identifier le nombre de minutes correspondant au lieu que vous cherchez à localiser. Vous devriez utiliser une apostrophe pour indiquer le nombre de minutes entre les lignes.
+
+-   Par exemple, si vous avez trouvé qu'il existe 23 minutes entre deux lignes de latitude, vous devriez écrire "23". Les minutes sont encore divisées en secondes. Il existe 60 secondes entre deux minutes. Encore une fois, vous pourriez utiliser une carte sur Internet pour identifier précisément le nombre de secondes qui correspondent à votre lieu. Vous pouvez utiliser deux apostrophes pour indiquer le nombre de secondes.
+-   Par exemple, si votre lieu est positionné à 15 secondes de la dernière minute de longitude, vous devrez ajouter "15". Les minutes sont encore divisées en secondes. Il existe 60 secondes entre deux minutes. Encore une fois, vous pourriez utiliser une carte sur Internet pour identifier précisément le nombre de secondes qui correspondent à votre lieu. Vous pouvez utiliser deux apostrophes pour indiquer le nombre de secondes.
+
+#### Exemple :
+
 ```
+23°12'32''N, 156°06'51''
+```
+
+E est la donnée d'une position. Elle se lit "Latitude : 23 degré 12 minutes 32 secondes Nord, Longitude : 56 degré 6 minutes 51 secondes Est.
+
+# 3/ Les trames NMEA
+
+Les sattelites fournissent les informations de localisation selon un protocole normalisé facilement décodable. Le Standard NMEA est défini simplement et uniquement comme étant le protocole de transmission des données entre les instruments et équipements électroniques liés au GPS.
+
+Une trame NMEA est donc une suite de caractères contenant des informations de géolocalisation comme : la latitude, la longitude, l'altitude, le nombre de satellites employés, l'heure...
+
+Une trame est constituée de champs. Les champs sont séparés entre eux par des virgules. Un champ peut être vide mais la présence de la virgule est obligatoire.
+
+-   Une trame commence toujours par le caractère $ ;
+-   Les deux lettres suivantes (champ "type de trame") identifient l'origine du signal : GP (pour le système GPS), GA (pour le système Galileo), ...
+-   Les 3 lettres qui terminent ce champ permettent d'identifier la trame : il existe plus d'une trentaine de trames. Nous nous limiterons à deux trames courantes : la trame GGA (Donnée de positionnement global du système) qui fait partie de celles qui sont utilisées pour connaître la position courante du récepteur GPS et la trame RMC (Information minimale recommandée).
+
+Les informations contenues dans une trame varient selon le type de trame mais celles-ci se terminent généralement par une clé de contrôle (ou « checksum ») : c'est un nombre ajouté au message qui permet au système de vérifier que le message reçu est conforme à celui envoyé.
+
+#### Exemple :
+
+<Image src="https://i.imgur.com/YznzqSk.png" alt="1er satellite" width={800} height={800} />
+
+# 4/ Calcul d'un itinéraire
+
+## L'algorithme de Djikstra
+
+Pour calculer un itinéraire, Waze, google Maps et tous les autres utilisent description algorithmes. Un des plus connu se nomme l'algorithme de Djikstra. Il utilise la technique des graphes.
+
+<Video id="JPeCmKFrKio" />
