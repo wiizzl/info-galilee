@@ -1,14 +1,12 @@
 import "katex/dist/katex.css";
 
-import { allOutils, allPremieres, allSecondes, allTerminales } from "contentlayer/generated";
+import { allDocuments } from "contentlayer/generated";
 import { notFound } from "next/navigation";
 
 import { Mdx } from "@/components/mdx";
 
 async function getCoursFromParams(slug: string) {
-    const allCours = [...allSecondes, ...allPremieres, ...allTerminales, ...allOutils]; // Combine all courses into one array
-
-    const cours = allCours.find((cours) => cours.slugAsParams === slug);
+    const cours = allDocuments.find((cours) => cours.slugAsParams === slug);
 
     if (!cours) return notFound();
 
