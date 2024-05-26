@@ -3,11 +3,32 @@ title: Numération
 description: Dans ce chapitre, nous allons voir les différentes conversions entre le binaire, le décimal et l'hexadécimal.
 ---
 
-Numération
+## Conversion binaire - décimal
 
-test
-$$x^2 + \sqrt{5}$$
+La conversion binaire en décimal est un processus fondamental dans le langage de l'informatique. Elle implique la transformation des nombres binaires, composés de 0 et de 1, en nombres décimaux utilisant la base 10. Chaque chiffre binaire est associé à une puissance de 2, de droite à gauche, et additionné en fonction de sa position. Par exemple, le nombre binaire 1011 est équivalent à 11 en décimal ($$1 \times 2^3 + 0 \times 2^2 + 1 \times 2^1 + 1 \times 2^0$$). Cette conversion est cruciale pour interpréter et manipuler des données dans les systèmes informatiques et la programmation.
 
-```js
-console.log("test");
-```
+<Video id="IAbX7eUT2Qc" />
+
+## Conversion décimal - binaire
+
+La conversion d'un nombre décimal en binaire est une opération cruciale en informatique. Elle implique la transformation d'un nombre en base 10 en sa représentation binaire, utilisant uniquement des 0 et des 1. Le processus consiste à diviser le nombre décimal par 2 de manière répétée, en enregistrant les restes à chaque étape. En lisant ces restes de bas en haut, on obtient la représentation binaire du nombre. Par exemple, le nombre 25 en décimal devient 11001 en binaire ($$\frac{25}{2} = 12$$ reste $$1$$, $$\frac{12}{2} = 6$$ reste $$0$$, $$\frac{6}{2} = 3$$ reste $$0$$, $$\frac{3}{2} = 1$$ reste $$1$$, $$\frac{1}{2} = 0$$ reste $$1$$). Cette conversion est essentielle pour le stockage et le traitement des données dans les systèmes informatiques.
+
+<Video id="6YI8A8oeVLw" />
+
+## Conversion binare - héxadécimal
+
+La conversion entre nombres binaires et hexadécimaux est courante en informatique. Les nombres binaires (base 2) utilisent 0 et 1, tandis que les hexadécimaux (base 16) utilisent 0-9 et A-F. Pour passer du binaire à l'hexadécimal, regroupez les chiffres binaires par quatre et convertissez chaque groupe. Pour la conversion inverse, convertissez chaque chiffre hexadécimal en binaire à quatre chiffres. Cette opération est cruciale pour la représentation efficace et la manipulation des données, notamment en programmation bas niveau et dans les systèmes embarqués.
+
+<Video id="thzfa_JxjP8" />
+
+## Conversion décimal - héxadécimal
+
+La conversion d'un nombre décimal en un nombre hexadécimal, base 16, est une opération courante en informatique. Pour réaliser cette conversion, le nombre décimal est divisé de manière répétée par 16. Les restes de ces divisions, lus de droite à gauche, représentent les chiffres hexadécimaux du nombre équivalent. Les chiffres de 10 à 15 sont notés avec les lettres de A à F, où A représente 10, B représente 11, et ainsi de suite jusqu'à F pour 15. Par exemple, le nombre décimal 305 devient 131 en hexadécimal ($$\frac{305}{16} = 19$$ reste $$1$$, $$\frac{19}{16} = 1$$ reste $$3$$). Donc, en hexadécimal, 305 est équivalent à 131. Cette conversion est essentielle pour stocker des données de manière plus compacte et pour diverses applications informatiques.
+
+<Video id="NEMoYhOwwwg" />
+
+## Conversion binaire - héxadécimal
+
+La conversion d'un nombre binaire en hexadécimal, une base 16, est un processus qui peut simplifier la représentation des données binaires. Pour ce faire, les bits binaires sont regroupés par groupe de quatre, puis chaque groupe est converti en son équivalent hexadécimal. Par exemple, le nombre binaire 110110101 peut être divisé en groupes de quatre bits : 1101 1010 1. En convertissant ces groupes en hexadécimal, 1101 correspond à D, 1010 à A et 1 reste 1. Ainsi, le nombre binaire 110110101 est équivalent à DA1 en hexadécimal. Cette méthode de conversion facilite la lecture et la représentation des données binaires, ce qui est crucial dans de nombreux contextes informatiques.
+
+<Video id="thzfa_JxjP8" />

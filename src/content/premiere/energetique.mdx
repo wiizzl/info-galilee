@@ -3,11 +3,88 @@ title: Enérgétique
 description: Dans ce chapitre, nous allons particulièrement nous intéresser aux différents types d'énergies ainsi q u'à la façon dont on peut la stocker.
 ---
 
-Enérgétique
+# 1/ Les différents types d'énergie
 
-test
-$$x^2 + \sqrt{5}$$
+<Image src="https://i.imgur.com/eVPKA7J.png" width={650} height={650} />
 
-```js
-console.log("test");
-```
+# 2/ Les unités de l'énergie
+
+Les unités les plus couramment utilisées en énergétique, à notre niveau sont :
+
+-   Le watt-heure (Wh)
+-   Le Joule (J)
+
+#### Remarque :
+
+$$1Wh = 3600J$$
+
+# 3/ La puissance
+
+La puissance s'exprine en watt. C'est le résultat de la mutltiplication de la grandeur d'effort par la grandeur de flux.
+
+Imaginons une ampoule. Celle-ci éclaire beaucoup. Elle a donc une grande puissance. Mais elle consomme beaucou d'énergie.
+
+On peut donc dire que la puissance est le résultat du travail fourni alors que l'énergie est ce que la machine a consommé.
+
+# 4/ Les grandeurs de flux et d'effort
+
+| Type d'énergie           | Grandeur de flux                              | Grandeur d'effort   | Puissance               |
+| ------------------------ | --------------------------------------------- | ------------------- | ----------------------- |
+| Électrique               | Intensité I ($$A$$)                           | Tension U ($$V$$)   | $$P = U \times I$$      |
+| Mécanique de translation | Vitesse v ($$m.s^{-1}$$)                      | Force F ($$N$$)     | $$P = v \times f$$      |
+| Mécanique de rotation    | Vitesse angulaire $$\omega$$ ($$rad.s^{-1}$$) | Couple C ($$N.m$$)  | $$P = \omega \times C$$ |
+| Hydraulique              | Débit Q ($$m^3.s^{-1}$$)                      | Pression P ($$Pa$$) | $$P = Q \times P$$      |
+
+# 5/ Le rendement
+
+$$\eta = \frac{Energie_{sortie}}{Energie_{entrée}} = \frac{Puissance_{sortie}}{Puissance_{entrée}}$$
+
+Le rendement est toujours inférieur à 1 (on ne créé pas de l'énergie) et s'exprime en pourcentage
+
+## Calcul du rendement d'une chaîne d'énergie
+
+Soit la chaine d'énergie suivante où $$\eta_1$$, $$\eta_2$$, $$\eta_3$$ et $$\eta_4$$ sont les rendements intermédiaires.
+
+<Image src="https://i.imgur.com/CDMLNQB.png" width={650} height={650} />
+
+Le rendement global du système est : $$\eta_{global} = \eta_1 \times \eta_2 \times \eta_3 \times \eta_4$$
+
+# 6/ Le stockage de l'énergie
+
+## Les grandeurs caractéristiques d'une batterie
+
+Les 3 grandeurs principales qui caractérisent les batteries sont :
+
+-   La tension (en Volt)
+-   La capacité
+    -   C'est la quantité de charges électriques qu'elle peut stocker
+    -   S'exprime en Coulombs (C) ou en Ampères-heures (Ah)
+-   La densité énergétique
+    -   C’est la quantité d’énergie stockée par unité de masse ou de volume
+    -   S'exprime en $$Wh.kg^{-1}$$ ou en $$Wh.l^{-1}$$
+
+## Association de batteries en série
+
+<Image src="https://i.imgur.com/8wLpXWo.png" width={400} height={400} />
+
+Si on branche plusieurs batteries en série :
+
+-   Les tensions s'additionnent
+-   Les capacités reste identique
+
+## Association de batteries en parrallèle
+
+<Image src="https://i.imgur.com/lnYeB6H.png" width={300} height={300} />
+
+Si on branche plusieurs batteries en parrallèle :
+
+-   Les tensions reste identique
+-   Les capacités s'additionnent
+
+# 7/ Synthèse
+
+| Type d'énergie                                                                                                                                                                                                                                                               | Grandeur de flux                         |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------- |
+| La capacité **Q** (ou quantité d'électricité) est le produit de l'intensité **I** du courant **A** par le temps **t**. Si t est en secondes, Q est en Coulombs (C). Si t est en heures, Q est en ampère-heure (Ah). 1Ah = 3600C                                              | $$Q = I \times t$$                       |
+| La puissance consommée **P** (en W) est égale au produit de la tension **U** (en v) de la batterie par le courant **I** (en A) qu'elle délivre.                                                                                                                              | $$P = U \times I$$                       |
+| L'énergie **E** est égae au produit de la puissance **P** (en W) absorbée par le temps de fonctionnement **t**. Si t est en secondes, E est en Joules (J). Si t est en heures, E est en Watt-heure (Wh). E est égale au produit de la tension **U** et de la capacité **Q**. | $$E = P \times t$$ et $$E = U \times Q$$ |

@@ -3,11 +3,38 @@ title: Photographie num.
 description: Dans ce chapitre, nous allons étudier le fonctionnement de la photographie numérique, les pixels, et les métadonnées.
 ---
 
-Photographie num.
+# 1/ Les pixels
 
-test
-$$x^2 + \sqrt{5}$$
+Une image est composée de points appelés **pixels**.
 
-```js
-console.log("test");
-```
+<Image src="https://i.imgur.com/RTr1LNl.jpeg" width={500} height={500} />
+
+Un pixel est composé de trois parties : une partie rouge, une partie verte et une partie bleue. À chaque pixel on associe donc 3 couleurs : le rouge, le vert et le bleu. On parle du canal rouge, du canal vert et du canal bleu d’un pixel (on parle de système RVB ou RGB en anglais). On codera donc un pixel à l'aide d'un triplet de valeur (par exemple "247,56,98"). La première valeur donnant l'intensité du canal rouge, la deuxième valeur donnant l'intensité du canal vert et la troisième valeur donnant l'intensité du canal bleu. Par exemple, le pixel codé (174,85,37) donne la coueur suivante :
+
+<Image src="https://i.imgur.com/RTr1LNl.jpeg" width={500} height={500} />
+
+Vous pouvez vous amuser à tester des triplets de couleur sur ce <Link href="https://www.proftnj.com/RGB3.htm">site</Link>.
+
+# 2/ Caractéristiques d'une image
+
+## La définition
+
+La **définition d'une image** est le nombre de pixels (points) en hauteur X le nombre de pixels en largeur.
+
+## La taille d'une image
+
+La taille d'une image est une autre caractéristique d'une image. Elle s'exprime en cm ou en pouce (inch). Un poce vaut 2,54 cm.
+
+## La résolution d'une image
+
+En combinant la définition et la résolution d'une image, on obtient la résolution.
+
+$$Resolution = \frac{definition}{taille}$$
+
+La résolution s'exprime en PPP (Pixel par Pouce) : Il faut donc que **la taille de l'image soit en pouce** !
+
+#### Exemple :
+
+Imaginons une image mesurant 30 cm par 15 cm et que sa définition soit de 6000 X 3000. Les dimensions étant en cm, il faut d'abord les convertir en pouces. 30cm / 2.54 = 11,81 pouces et 15 / 2.54 = 5.9 pouces. Calculons maintenant la résolution: 6000/11.81 = 508 ppp et 3000 / 5.9 = 508 ppp.
+
+La résolution de cette image est donc de **508 ppp**.

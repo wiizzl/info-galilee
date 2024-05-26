@@ -39,3 +39,27 @@ Une adresse IP est un numéro attribué à une machine selon l'Internet Protocol
 ```
 197.168.56.24
 ```
+
+### L'adresse réseau et l'addresse de la machine
+
+Une adresse IP est composée de deux partie :
+
+-   L'identification du réseau (souvent composée des 2 ou trois premiers nombres de mon adresse). Cette partie de l'adresse est aussi appelée "netID".
+-   L'identification de la machine (souvent composée des 2 ou 1 dernier nombre de mon adresse). Cette partie de l'adresse est aussi appelée "HostID".
+
+#### Exemple :
+
+<Image src="https://i.imgur.com/W1p6GnQ.png" width={800} height={800} />
+
+## Les paquets de données
+
+Sur Internet, les données sont transférées sous forme de **paquets**. Chaque paquet est formé de deux grande partie :
+
+-   **L'en-tête** où sont inscrites des informations permettant l'acheminement (adresse de l'expéditeur, du destinataire, ...
+-   **La partie Data** qui contient une partie de la données à transférer.
+
+## Les serveurs DNS
+
+Le **serveur DNS** Domain Name System, ou Système de noms de domaine en français) est un service dont la principale fonction est de traduire un nom de domaine en adresse IP. Pour simplifier, le serveur DNS agit comme un annuaire que consulte un ordinateur au moment d'accéder à un autre ordinateur via un réseau.
+
+Autrement dit, le serveur DNS est ce service qui permet d'associer à site web (ou un ordinateur connecté ou un serveur) une adresse IP, comme un annuaire téléphonique permet d'associer un numéro de téléphone à un nom d'abonné.

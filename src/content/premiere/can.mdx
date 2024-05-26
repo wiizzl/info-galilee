@@ -3,11 +3,49 @@ title: Conversion analogique/num.
 description: Dans ce chapitre, nous allons étudier le principe d'échantillonage. C'est à dire la conversion d'une valeur analogique en valeur numérique.
 ---
 
-Conversion analogique/num.
+# 1/ Introduction
 
-test
-$$x^2 + \sqrt{5}$$
+Certains capteurs mesurent des valeurs comme la température, la pression atmosphérique,...qui nous sont transmis sous forme d'un signal analogique (tension). Ce signal analogique ne peut pas être traité par un microcontroleur qui ne comprend, comme un ordinateur, que des 0 et des 1. Il faut donc convertir ce signal analogique en un signal numérique. Pour cela, nous utilisons un composant électronique appelé **convertisseur analogique-numérique**. La plupart du temps, le convertisseur est intégré au capteur (on parle alors de capteur numérique) ou au microcontroleur.
 
-```js
-console.log("test");
-```
+<Image src="https://i.imgur.com/9FxdhUH.png" width={600} height={600} />
+
+# 2/ Processus de conversion
+
+<Image src="https://i.imgur.com/xqkBa05.png" width={600} height={600} />
+
+# 3/ valeurs significatives
+
+Les **valeurs significatives** lorsqu'on étudie un convertisseur analogique - numérique sont :
+
+-   La **plage de tension** mesurée par le convertisseur $$V_{ref}$$
+-   **n**, le nombre de bits de convertisseur
+-   Le **quantum**
+-   La **valeur numérique N**, image de la tension initialement mesurée
+
+## La plage de tension $$V_{ref}$$
+
+La plage de tension est celle que le convertisseur analogique numérique est capable de numériser. Pour un Arduino par exemple, la plage de tension est de 0 à 5V.
+
+$$V_{ref}$$ est donc égale à $$V_{max} - V_{min} = 5 - 0 = 5V$$.
+
+#### Attention :
+
+Si la plage de tension va de $$-5V$$ à plus de $$3V$$, par exeemple alors $$V_{ref} = 8V$$.
+
+## Le nombre de bits du convertisseur
+
+Le **nombre de bits du convertisseur**, noté n est donné par le constructeur. Plus le nombre de bits est élevés, plus le signal analogique sera découpé finement et donc, plus la résolution sera élevée. Par exemple, une carte Arduino possède un convertsseur 10 bits.
+
+Cela indique que le signal analogique sera découpé en $$2^{10}$$ échanillons, soit 1024 (de 0 à 1023).
+
+## Le quantum
+
+Le quantum est la plus petite valeur de tension pour laquelle on passe à la valeur numérique N suivante. Le quantum se calcule ainsi :
+
+$$q = \frac{V\_{ref}}{2^n}$$
+
+## N, le nombre numérique
+
+N est le **nombre numérique**, image de la tension envoyée par le capteur. Sa valeur est égale à :
+
+$$N = \frac{V}{q}$$

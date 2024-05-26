@@ -3,11 +3,88 @@ title: Electricité
 description: Ce chapitre comprend les lois de Kirshoff, c'est à dire la loi d'ohm, des mailles et des noeuds ainsi que tout ce qui en découle (diviseur de tension, de courant).
 ---
 
-Electricité
+## Loi d'Ohm
 
-test
-$$x^2 + \sqrt{5}$$
+<Image src="https://i.imgur.com/bzg42ev.png" width={500} height={500} />
 
-```js
-console.log("test");
-```
+Dans l'exemple ci dessus : $$U = R \times I$$
+
+-   Avec $$U$$, la tension en **Volt**
+-   Avec $$R$$, la résistance en **Ohm**
+-   Avec $$I$$, l'intensité en **Ampère**
+
+## Convention de fléchage des tensions
+
+<Image src="https://i.imgur.com/QbMdgUM.png" width={500} height={500} />
+
+Dans le cas d'un générateur (pile, batterie, …), les flèches représentant la tension et l'intensité sont dans le même sens. Dans le cas d'un récepteur (résistance, condensateur, …), les flèches représentant la tension et l'intensité sont dans le sens inverse.
+
+## Loi des mailles
+
+<Image src="https://i.imgur.com/owvg98g.png" width={500} height={500} />
+
+Dans un circuit électrique fermé, la somme des tensions est égales à 0. Attention au sens des flêches ! Dans le cas ci contre :
+
+$$U_{ad}$$ est une tension aux bornes d'un générateur donc on va dans le sens de la flèche.
+
+$$U_{ab}$$, $$U_{bc}$$ et $$U_{cd}$$ sont des ensions aux bornes de récepteurs (résistances) donc on va dans le sens inverse de la flèche.
+
+Nous avons donc :
+
+$$U_{ad} + U_{ab} + U_{bc} + U_{cd} = 0$$
+
+## Loi des noeuds
+
+<Image src="https://i.imgur.com/1vaA3tY.png" width={250} height={250} />
+
+Dans un noeud, la somme des intensité qui entre dans ce noeud est égale à la somme des intensités qui en sortent.
+
+Nous avons donc avec l'exemple ci dessus :
+
+$$I_1 + I_2 = I_3 + I_4$$
+
+## Diviseur de tension
+
+<Image src="https://i.imgur.com/aFb0OqY.png" width={400} height={400} />
+
+Le diviseur de tension permet d'abaisser une tension.
+
+Nous avons donc avec l'exemple ci dessus :
+
+$$U_2 = U \times \frac{R_2}{R_1 + R_2}$$
+
+## Diviseur de courant
+
+<Image src="https://i.imgur.com/vJeXInj.png" width={400} height={400} />
+
+Le diviseur de courant permet d'abaisser le courant.
+
+Nous avons donc avec l'exemple ci dessus :
+
+$$I_1 = I \times \frac{R_2}{R_1 + R_2}$$ et $$I_2 = I \times \frac{R_1}{R_1 + R_2}$$
+
+## Notion de puissance
+
+Il s'agit de l'énergie échangée (donnée ou reçue) en une seconde. Elle s'exprime en Watt.
+
+$$P = U \times I$$ et $$P = R \times I^2$$
+
+## Calcul de résistance équivalente
+
+### 1. r&sistance en série
+
+<Image src="https://i.imgur.com/hrpxkTS.png" width={400} height={400} />
+
+Lorsqu'elles sont en série, la résistance équivalente est égale à la somme des résistances.
+
+Dans l'exemple ci dessus :
+
+$$R_{équivalente} = R_1 + R_2$$
+
+### 2. résistance en dérivation (parralèle)
+
+<Image src="https://i.imgur.com/QkpIH8z.png" width={400} height={400} />
+
+Lorsqu'elles sont en dérivation, la résistance équivalente à deux résistances en dérivation est la suivante :
+
+$$R_{équivalente} = \frac{R_1 \times R_2}{R_1 + R_2}$$

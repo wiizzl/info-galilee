@@ -3,11 +3,44 @@ title: Réseaux sociaux
 description: Dans ce chapitre, nous allons étudier l'impact des réseaux sociaux sur notre monde actuel et le modéliser selon le principe des graphes orientés.
 ---
 
-Réseaux sociaux
+# 1/ les caractéristiques des réseaux sociaux
 
-test
-$$x^2 + \sqrt{5}$$
+## Définition
 
-```js
-console.log("test");
-```
+Les **réseaux sociaux** sont des applications mettant en relation des internautes. Certains ont un thème imposé, d'aures sont généralistes. Par exemple, Linkedln est un réseau dédié aux relations professionnelles tantdis que snapchat est un réseau généraliste.
+
+## Les principaux concepts
+
+Pour se connecter, un identifiant et un mot de passe sont nécessaires. On parle d'**identification** et d'**authentification**. Le paramétrage des abonnements permet de contrôler la confidentialité de ses données personnelles et des traces laissées sur les réseau sociaux. L'ensemble de ces traces est appelé identité numérique. Elle influence l'image de l'utilisateur sur Internet, appelé E-réputation.
+
+# 2/ Le modèle économique des réseaux sociaux
+
+## La publicité et les contenus sponsorisé
+
+Les entreprisesdes réseaux sociaux sontprincipalement rénumérés grâce à la publicité. Elles fournissent aux annonceurs des informations qui permettent d'adapter le contenu des publicités proposées au profil de l'utilisateur (grâce à l'intelligence artificielle). C'est ce qu'on appelle **le ciblage**. Les publications sponsorisées permettent de mettre en avant une publicité et de mieux la cibler, via l'achat d'un espace spécifique sur les réseaux sociaux.
+
+## L'accès à des fonctionnalités payantes
+
+Un petite partie des revenus provient de modèles "freemium" qui propose une offre basique gratuite et une offre "premium" payantes donnant droit à des fonctionnalités supplémentaires.
+
+# 3/ Représentation sous forme de graphes
+
+## Les graphes
+
+Dans un réseau social, les liens entre utilisateurs est complexes. Il est donc nécessaire de les représenter sous forme de graphes. Un graphe est constitué d'un ensemble de **sommets** (utilisateurs) et d'**arrêtes** (liens entre utilisateurs).
+
+<Image src="https://i.imgur.com/VrZcFyx.png" width={500} height={500} />
+
+## Quelques caractéristiques sur les graphes
+
+Un graphe est constitué de sommets (nœuds) et d'arêtes (segments reliant deux sommets).
+
+-   La **chaîne** : Dans un graphe, une chaîne reliant un sommet x à un sommet y est définie par une suite finie d'arêtes consécutives, reliant x à y.
+-   L'**écartement** : L'écartement d'un sommet est la distance maximale existant entre ce sommet et les autres sommets du graphe.
+-   Le **centre** : On appelle centre d'un graphe, le sommet d'écartement minimal. (le centre n'est pas nécessairement unique).
+-   Le **rayon** : On appelle rayon d'un graphe , l'écartement d'un centre du graphe.
+-   le **diamètre** : On appelle diamètre d'un graphe , la distance maximale entre deux sommets du graphe .
+
+# 4/ Le petit monde de Milgram
+
+<Video id="gOiIQ0qGiCc" />

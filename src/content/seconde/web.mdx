@@ -3,11 +3,93 @@ title: Le web
 description: Dans ce chapitre, nous allons apprendre comment est né le web et tenter de bien comprendre la différence entre web et Internet
 ---
 
-Le web
+# 1/ Web ou Internet
 
-test
-$$x^2 + \sqrt{5}$$
+<Video id="GqD6AiaRo3U" />
 
-```js
-console.log("test");
+# 2/ Le modèle client-serveur
+
+Nous avons vu que deux ordinateurs en réseau peuvent s'échanger des données. Dans la plupart des cas ces échanges ne sont pas "symétriques" : en effet un ordinateur A va souvent se contenter de demander des ressources (fichiers contenant du texte, photos, vidéos, sons...) à un ordinateur B. L'ordinateur B va lui se contenter de fournir des ressources à tous les ordinateurs qui lui en feront la demande. On dira alors que l'ordinateur A (celui qui demande des ressources) est un client alors que l'ordinateur B (celui qui fournit les ressources) sera qualifié de serveur.
+
+Le web est constitué de :
+
+-   Serveurs qui hébergent les pages web.
+-   Clients comme les navigateurs web qui demandent les pages web.
+
+<Image src="https://i.imgur.com/NqzyIdk.png" width={600} height={600} />
+
+Si vous tapez cette adresse :
+
 ```
+http://google.fr
+```
+
+Votre machine va chercher à enrer en communication avec le serveur portant le nom "www.google.fr".
+
+Une fois la liaison établie, le client et le serveur vont échanger des informations en dialoguant :
+
+-   Le **client** : Bonjour www.google.fr (ou bonjour www se trouvant dans le domaine google.fr), pourrais-tu m'envoyer le fichier index.html stp ?
+-   Le **serveur** : Ok client, voici le fichier index.html !
+-   Le **client** : Je constate que des images et du code css sont utilisés, peux-tu me les envoyer stp ?
+-   Le **serveur** : Bien sur : les voici !
+
+# 3/ Le protocole HTTP
+
+Dans le web, le client échange de nombreuses informations avec le serveur, les pages web bien sûr, mais également :
+
+-   Des informations sur le navigateur
+-   Des données d'identification (cookies, ...)
+-   La langue du contenu...
+
+Ces données sont codifiées par le protocole HTTP ou HTTPS dans le cas d'échanges sécurisés ( mots de passe, paiements...).
+
+Le client effectue des demandes au serveur comme :
+
+-   **GET** : demande d'une page
+-   **POST** : transmission de données (formulaire, ...)
+-   **DELETE** : supression d'une ressource du serveur
+
+Les informations nécessaires à la requête sont placées dans des en-têtes un peu comme si les messages étaient placés dans une enveloppe.
+
+Voici la requête HTTP (un extrait) envoyée pour demander la page :
+
+```
+https://fr.wikipedia.org/wiki/Hypertext_Transfer_Protocol
+```
+
+En cliquant sur le lien du moteur de recherche www.qwant.com.
+
+La première ligne indique le type de requête (GET, POST...), l'adresse de la ressource, et la version du protocole.
+
+```
+GET /wiki/Hypertext_Transfer_Protocol HTTP/2
+Host: fr.wikipedia.org
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:80.0) Gecko/20100101 Firefox/80.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Accept-Language: fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3
+...
+Referer: https://www.qwant.com/
+...
+Cookie: WMF-Last-Access=14-Sep-2020; WMF-Last-Access-Global=14-Sep-2020; GeoIP=FR:PAC:Nice:43.71:7.26:v4;
+...
+```
+
+# 4/ L'URL
+
+Dans la barre d'adresse de votre navigateur web vous trouverez, quand vous visitez un site, des choses du genre :
+
+```
+info-galilee.fr
+```
+
+C'est une **URL**.
+
+Une **URL (Uniform Resource Locator)** permet d'identifier une ressource (par exemple un fichier) sur un réseau.
+
+L'URL indique « l'endroit » où se trouve une ressource sur un ordinateur. Un fichier peut se trouver dans un dossier qui peut lui-même se trouver dans un autre dossier... On parle d'une structure en arborescence, car elle ressemble à un arbre à l'envers :
+
+<Image src="" width={600} height={600} />
+
+# 5/ Les moteurs de recherche
+
+<Video id="iKMm6SXO0wA" />
