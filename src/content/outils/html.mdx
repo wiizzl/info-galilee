@@ -3,11 +3,250 @@ title: HTML & CSS
 description: Vous retrouverez ici l'ensemble des balises de base permettant de créer une page web statique simple.
 ---
 
-HTML & CSS
+# 1/ Structure
 
-test
-$$x^2 + \sqrt{5}$$
+## Introduction
 
-```js
-console.log("test");
+Une page HTML de base a toujours la même structure.
+
+-   Un document HTML commence toujours par indiquer le type de document créé avec la balise DOCTYPE.
+-   Un document HTML commence généralement par la balise html. À l'intérieur de la balise html, on trouve les balises head et body.
+-   L'en-tête d'un document HTML est défini dans la balise head. Cet en-tête contient des informations sur la page, telles que le titre, les liens vers des feuilles de style (CSS), des métadonnées, etc...
+-   Le contenu principal de la page HTML est situé dans la balise body. C'est là que vous placez tous les éléments visibles sur la page, tels que du texte, des images, des liens, des formulaires, etc...
+
+Pour le moment, nous avons donc une structure de page qui est la suivante :
+
+```html
+<!DOCTYPE >
+<html>
+    <head></head>
+    <body></body>
+</html>
 ```
+
+## L'en tête
+
+Comme nous l'avons dit précédemment, l'en-tête contient les éléments d'information de la page html qui ne sont pas affichés sur la page.
+
+Dans cet en-tête, on trouvera principalement :
+
+-   Le **titre de l'onglet** entouré de la balise title.
+-   L'indication **UTF-8** pour coder les caractères tels que les "é" avec la balise meta>
+-   Le lien vers un **fichier css** (feuille de style) avec la balise link>
+
+On a donc au minimum une page dont le début ressemble à ça :
+
+```html
+<!DOCTYPE >
+<html>
+    <head>
+        <title>titre_de_la_page</title>
+        <meta charset="utf-8" />
+        <link rel="style" href="lien_vers_le_fichier" />
+    </head>
+    <body></body>
+</html>
+```
+
+## Le corps de la page
+
+Le corps de la page web correspond à ce que l'on voit à l'écran. Cette page va certainement contenir du texte, des photos, des tableaux, ...
+
+# 2/ Balises
+
+## Les titres
+
+Les titres sont entourées de balises h suivi d'un indice. Plus l'indice est petit, plus le titre est grand.
+
+#### Exemple :
+
+-   h1 : désigne un titre de type h1 (le plus gros des titres)
+-   h2 : désigne un titre de type h2 (plus petit que le h1)
+-   h3 : désigne un titre de type h3 (plus petit que le h2)
+-   h4 : désigne un titre de type h4 (plus petit que le h3)
+-   h5 : désigne un titre de type h5 (plus petit que le h4)
+-   h6 : désigne un titre de type h6 (plus petit que le h5)
+
+## Les paragraphes
+
+Un paragraphe se met dans la balise p.
+
+-   Pour mettre du texte **en gras**, on l'entourera de la balise strong.
+-   Pour mettre du texte en _italique_, on l'entourera de la balise i.
+-   Pour **souligner** du texte, on l'entourera de la balise u.
+-   Pour aller à la ligne, il faut mettre une balise br.
+    -   Pour sauter une ligne, il suffit de mettre deux balises br.
+
+## Les listes
+
+Une liste se fait dans la balise ul.
+
+### 1. Les listes à puces
+
+Chaque puce doit être mise dans la balise li.
+
+#### Exemple :
+
+```html
+<ul>
+    <li>Mario</li>
+    <li>Luigi</li>
+    <li>Toad</li>
+    <li>Yoshi</li>
+</ul>
+```
+
+Cela s'affichera de la manière suivante :
+
+-   Mario
+-   Luigi
+-   Toad
+-   Yoshi
+
+### 2. Les listes numérotés
+
+Les listes numérotées ont la même structure que les listes à puce sauf qu'elles seront entourées par la balise ol.
+
+#### Exemple :
+
+```html
+<ul>
+    <ol>
+        Mario
+    </ol>
+    <ol>
+        Luigi
+    </ol>
+    <ol>
+        Toad
+    </ol>
+    <ol>
+        Yoshi
+    </ol>
+</ul>
+```
+
+Cela s'affichera de la manière suivante :
+
+1. Mario
+2. Luigi
+3. Toad
+4. Yoshi
+
+## Les images
+
+Il existe deux façons d'intégrer une image dans une page html :
+
+-   L'image sur internet :
+
+Dans ce cas, on intègre le lien de l'image. Aller sur l'image (attention à ne pas être toujours sur le moteur de recherche), puis on copie le lien de l'image en effectuant un clic droit.
+
+```html
+<img src="lien_vers_image" alt="nom_image" />
+```
+
+L'image dans un fichier :
+
+```html
+<img src="dossier/nom_fichier" alt="nom_image" />
+```
+
+## Vidéo YouTube
+
+Pour intégrer des vidéos youtube, rien de plus simple! allez sur la vidéo, cliquez droit sur la vidéo puis choisissez "copier le code d'intégration, puis faites directement un coller dans votre code html.
+
+<Image src="https://i.imgur.com/xEcBzMo.png" size={600} />
+
+## Lien hypertexte
+
+### 1. Lien vers une autre page web
+
+Un lien vers une autre page web sera entouré de la balise a.
+
+#### Exemple :
+
+```html
+<a href="url_de_la_page">nom_visible</a>
+```
+
+### 2. Lien vers un emplacement précis de la page
+
+Un lien vers un emplacement précis de la page s'appelle une ancre. Ce lien se fait en deux étapes :
+
+-   Mettre l'ancre là où vous vouslez renvoyer le document de la façon suivante :
+
+```html
+<div id="ancre">Exemple</div>
+```
+
+-   Le lien qui renvoie à l'emplacement de l'ancre :
+
+```html
+<a href="#ancre">vers_la_div_avec_pour_id_"ancre"</a>
+```
+
+## Les tableaux
+
+Un tableau est créé avec la balise table. Tous les éléménts d'un tableau sont entourés de balises :
+
+-   Les titres de colonnes et de lignes sont entourées de la balise th.
+-   Les lignes sont entourées de la balise tr.
+-   Les colonnes sont entourées de la balise td.
+
+```html
+<table>
+    <tr>
+        <th>Mario</th>
+        <th>Yoshi</th>
+        <th>Luigi</th>
+        <th>Daisy</th>
+    </tr>
+    <tr>
+        <th>Kart 1</th>
+        <td>Bonne vitesse</td>
+        <td>Accélération moyenne</td>
+        <td>Un peu lourd</td>
+    </tr>
+    <tr>
+        <th>Kart 2</th>
+        <td>Un peu lourd</td>
+        <td>Bonne vitesse</td>
+        <td>Bonne vitesse</td>
+    </tr>
+</table>
+```
+
+Ce qui donne :
+
+|        | Mario         | Yoshi                | Luigi         | Daisy         |
+| ------ | ------------- | -------------------- | ------------- | ------------- |
+| Kart 1 | Bonne vitesse | Accélération moyenne | Un peu lourd  | Un peu lourd  |
+| Kart 2 | Un peu lourd  | Bonne vitesse        | Bonne vitesse | Bonne vitesse |
+
+## Les balises div et span
+
+Les éléments "div" et "span" permettent de mettre en forme une partie de la page web.
+
+### 1. L'élément "span"
+
+L'élément **span** est un "**conteneur in line**". Il permet de mettre en forme une partie d'un paragraphe par exemple sans modifier la structure du document.
+
+#### Exemple :
+
+```html
+<!-- Ceci permet d'afficher un paragraphe en bleu -->
+<span style="color:blue">texte</span>
+```
+
+### 2. L'élément "div"
+
+L'élément **div** est un "**conteneur in block**". Il permet de mettre en forme une partie d'un paragraphe par exemple mais modifie la structure du document.
+
+#### Exemple :
+
+```html
+<!-- Ceci permet aussi d'afficher un paragraphe en bleu -->
+<div style="color:blue">texte</div>
+```
+
+On voit que les éléments sont séparés avec la balise div alors qu'elles restent unies avec la balise span.

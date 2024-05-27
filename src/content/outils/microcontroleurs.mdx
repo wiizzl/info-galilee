@@ -3,11 +3,97 @@ title: Microcontrôleurs
 description: Vous retrouverez ici l'ensemble des cartes permattant de programmer des capteurs et des actionneurs.
 ---
 
-Micro-contrôleurs
+# 1/ Raspberry PI
 
-test
-$$x^2 + \sqrt{5}$$
+## Caractéristiques
 
-```js
-console.log("test");
-```
+Le Raspberry Pi est un ordinateur monocarte de petite taille et peu coûteux qui a été créé pour encourager l'apprentissage de la programmation informatique et pour faciliter l'accès à la technologie pour tous. Voici quelques-unes de ses principales caractéristiques :
+
+-   **Petite taille et faible coût** : Le Raspberry Pi est très petit et léger, ce qui le rend facilement transportable et peut être installé dans des espaces restreints. De plus, il est peu coûteux, ce qui le rend accessible à tous.
+-   **Faible consommation d'énergie** : Le Raspberry Pi consomme très peu d'énergie, ce qui le rend idéal pour une utilisation dans des projets alimentés par batterie ou des projets utilisant des panneaux solaires.
+-   **Connectivité** : Le Raspberry Pi dispose de nombreuses options de connectivité, y compris des ports USB, un port Ethernet, une connexion Wi-Fi et une connectivité Bluetooth.
+-   **Puissance de calcul** : Le Raspberry Pi est équipé d'un processeur ARM et d'une mémoire vive (RAM) qui peuvent être utilisés pour exécuter diverses tâches informatiques.
+-   **Flexibilité** : Le Raspberry Pi peut être utilisé pour une variété de projets, tels que la création de serveurs, la robotique, l'automatisation de la maison, l'Internet des objets, l'enseignement de la programmation et bien plus encore.
+-   **Système d'exploitation** : Le Raspberry Pi peut fonctionner avec différents systèmes d'exploitation, notamment Raspbian (une version de Linux optimisée pour le Raspberry Pi), Ubuntu, Windows 10 IoT Core et plus encore.
+-   **Communauté active** : Le Raspberry Pi dispose d'une communauté active de développeurs et d'utilisateurs qui partagent des projets, des tutoriels et des astuces pour aider les autres à exploiter tout le potentiel de cette petite carte.
+
+## Cablage
+
+<Image src="https://i.imgur.com/mWus7Nu.png" size={500} />
+
+# 2/ ESP 32
+
+## Définition
+
+La carte ESP32 est développé par la société Espressif , est une carte de développement à faible coût dédié à l’internet des objets (IoT) et les applications embarquées. C’est un SOC développé par la société Espressif dédié à l’internet des objets (IoT) et plus particulièrement les communications sans fil Wifi et Bluetooth pour un coût réduit. Il a été décliné en version module l’ESP-WROOM-32 qui a lui même été intégré par différents fabricants (Essentiellement Chinois) sur des cartes de développement.
+
+## Caractéristiques
+
+-   Alimentation : $$5 V_{cc}$$ via micro-USB et $$3.3 V_{cc}$$ via broches $$V_{in}$$
+-   Microprocesseur : Tensilica LX6 Dual-Core
+-   Fréquence : $$240 MHz$$
+-   Mémoire SRAM : $$512 kB$$
+-   Mémoire Flash : $$4 Mb$$
+-   E/S disponibles : 15 E/S digitales dont 10 compatibles PWM, 2 x sorties analogiques (DAC) et 15 x entrées analogiques (ADC)
+-   Interfaces : I2C, SPI, $$2 \times$$ UART
+-   Interface Wifi $$802.11 b/g/n 2,4 GHz$$
+-   Bluetooth : Classique / BLE
+-   Antenne intégrée
+-   Température de service : $$40$$ à $$125 °C$$
+-   Dimensions: $$48 \times 26 \times 11,5mm$$
+
+## Cablage
+
+<Image src="https://i.imgur.com/WErfOlr.png" size={700} />
+
+# 3/ Microbit
+
+## Définition
+
+La carte micro:bit est une carte électronique (nano-ordinateur) créée par la BBC en 2016 pour promouvoir l'apprentissage du codage auprès des élèves. C'est une carte micro-contrôleur, programmable, ayant des capteurs et actionneurs intégrés. Elle est plus puissante que la carte Arduino Uno.
+
+La carte peut fonctionner de manière autonome ou elle peut rester connectée en USB à un ordinateur. Elle peut alimenter des capteurs en 3,3V. Quand on la branche à un ordinateur, elle est détectée comme une carte SD ou une clé USB : il n’y a donc pas de drivers à installer (sous win10) et il suffit simplement de déposer le micro-programme (fichier .hex) dans sa mémoire. La carte exécute ensuite ce programme. La carte peut-être programmée dans un langage dérivé de Python, mais très proche : le Micropython.
+
+<Image src="https://i.imgur.com/nEtrxfR.png" size={400} />
+
+## Caractéristiques
+
+-   Alimentation : via port micro-USB ou via connecteur JST ($$3V$$) ou via broches $$3V$$ et GND
+-   Microprocesseur : CPU ARM Cortex M0 32 bits à $$16 MHz$$
+-   Mémoire flash : $$256 kB$$
+-   Mémoire RAM : $$16 kB$$
+-   23 broches d'E/S dont 6 entrées analogiques
+-   Matrice 5x5 leds rouges
+-   2 boutons-poussoirs
+-   Bluetooth Low Energy 4.0
+-   Accéléromètre 3 axes MMA8652​
+-   Magnétomètre 3 axes MAG3110
+-   Bus série, I2C et SPI
+-   Dimensions : $$40 \times 50mm$$
+-   Poids : $$8g$$
+
+# 4/ Arduino
+
+## Définition
+
+Un module Arduino est généralement construit autour d'un microcontrôleur Atmel AVR (ATmega328 ou ATmega1280 pour les versions récentes, ATmega168 ou ATmega8 pour les plus anciennes), et de composants complémentaires qui facilitent la programmation et l'interfacage avec d'autres circuits. Chaque module possède au moins un régulateur linéaire 5V et un oscillateur à quartz 16 MHz (ou un résonnateur céramique dans certains modèles). Le microcontrôleur est pré-programmé avec un bootloader de façon à ce qu'un programmateur dédié ne soit pas nécessaire.
+
+Les modules sont programmés au travers d'une connexion série RS-232, mais les connexions permettant cette programmation diffèrent selon les modèles.
+
+## Caractéristiques
+
+-   Alimentation : via port USB ou $$7$$ à $$12V$$ sur connecteur alim $$5.5 \times 2.1mm$$
+-   Microcontrôleur : ATMega328
+-   Mémoire flash : $$32 kB$$
+-   Mémoire SRAM : $$2 kB$$
+-   Mémoire EEPROM: $$1 kB$$
+-   Interfaces : 14 broches d'E/S dont 6 PWM, 6 entrées analogiques 10 bits et Bus série, I2C et SPI
+-   Intensité par E/S : $$40 mA$$
+-   Cadencement: $$16 MHz$$
+-   Gestion des interruptions
+-   Connecteur USB B
+-   Dimensions: $$74 \times 53 \times 15mm$$
+
+## Cablage
+
+<Image src="https://i.imgur.com/UHfKWd6.png" size={350} />

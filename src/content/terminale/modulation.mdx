@@ -3,11 +3,247 @@ title: Modulation
 description: Dans ce chapitre, nous allons nous intéresser au principe de fonctionnement de modulation et démodulation pour le transport des signaux.
 ---
 
-Modulation
+# 1/ Introduction
 
-test
-$$x^2 + \sqrt{5}$$
+Vers 1887, Heinrich Hertz, professeur à l’École technique supérieure de Karlsruhe invente et construit un oscillateur à haute fréquence :
 
-```js
-console.log("test");
+Ce courant alternatif de haute fréquence produit une onde électromagnétique qui induit des courants dans le «résonateur» voisin, produisant de petites étincelles dans l'éclateur.
+
+Grâce à un oscillateur sinusoïdal, on peut produire une onde entretenue de fréquence $$fo$$ stable. L’onde électromagnétique émise est formée de champs E (électrique) et B (magnétique) variant sinusoïdalement à la fréquence fo.
+
+<Image src="https://i.imgur.com/2U4hMKk.png" size={500} />
+
+Cette onde induit un courant $$i(t)$$ de même fréquence $$fo$$ dans l’antenne de réception. Si ce courant entre dans un circuit RLC accordé sur $$fo$$, la tension VL aux bornes du circuit sera maximale.
+
+Un autre émetteur émettant à la fréquence f1sera aussi capté par l’antenne, mais produira une tension VL plus faible.
+
+Les radiofréquences sont utilisées pour de nombreux usages auxquels des fréquences particulières ont été accordées afin d’assurer leur fonctionnement.
+
+# 2/ Transmission en bande de base
+
+La télécommunication consiste à transmettre un signal entre un émetteur et un récepteur distant.
+
+<Image src="https://i.imgur.com/iMYSsM1.png" size={550} />
+
+Le signal est transmis par un médium : fil électrique, fibre optique, air, espace, etc… Le signal à transmettre peut être de nature analogique (prenant une infinité de valeurs, dans un intervalle donné, dans le temps) ou de nature numérique (prenant une succession de valeurs logiques dans le temps).
+
+<Image src="https://i.imgur.com/P4YAC7z.png" size={650} />
+
+On peut par exemple transmettre un signal analogique issu d’un microphone captant une voix ou un signal numérique (données numériques) issue d’une carte traitement numérique.
+
+Qu’il soit analogique ou numérique, un signal est la superposition de différentes composantes sinusoïdales de fréquences et d’amplitudes différentes.
+
+## Cas d’un signal analogique à transmettre
+
+<Image src="https://i.imgur.com/tBNiJcw.png" size={700} />
+
+<Image src="https://i.imgur.com/akM3oY4.png" size={600} />
+
+## Cas d’un signal Numérique à transmettre
+
+<Image src="https://i.imgur.com/um3uz2J.png" size={650} />
+
+On peut transmettre ces signaux sans leur apporter de transformations autres qu’une amplification (augmentation de l’amplitude du signal à transmettre).
+
+<Image src="https://i.imgur.com/HVnvrJ8.png" size={650} />
+
+Le signal à transporter conserve alors les mêmes fréquences que le signal à transmettre. On dit qu’il est transmis en bande de base :
+
+<Image src="https://i.imgur.com/tY4RxGK.png" size={650} />
+
+Ces fréquences sont de l’ordre de l’hertz ou du kilohertz, on les qualifie de basses fréquences en comparaison des hautes fréquences qui peuvent être de l’ordre du mégahertz.
+
+<Image src="https://i.imgur.com/pjfdIHe.png" size={700} />
+
+La télécommunication en bande de base s’avère relativement simple à mettre en oeuvre, mais elle présente l’inconvénient de ne pouvoir transmettre qu’un seul message à la fois.
+
+En effet si on cherche à transmettre plusieurs messages en bande de base simultanément sur le même médium, alors les messages se superposent fréquenciellement sur la ligne de transmission, et le récepteur reçoit les deux messages mélangés (fréquenciellement).
+
+<Image src="https://i.imgur.com/Byoqkaa.png" size={700} />
+
+Le récepteur est alors **incapable de dissocier les deux signaux**.
+
+C’est comme si les deux personnes avaient parlé dans le même micro, lorsque que l’on reçoit deux discours simultanés, il est extrêmement difficile de distinguer le discours d’un seul des deux orateurs. Si on envoie encore plus de messages simultanés sur le même médium, les messages deviennent totalement intelligibles à la réception :
+
+<Image src="https://i.imgur.com/Gq6MlbZ.png" size={650} />
+
+On voudrait alors dissocier à la réception chaque message d’origine mais cela est impossible car **les signaux ont été mélangés** (fréquenciellement).
+
+Pour mieux comprendre ce phénomène imaginons que chacun des trois émetteurs n’envoie qu’une seule fréquence identique (ils chantent un LA à 440Hz en phase).
+
+<Image src="https://i.imgur.com/cHJUvLW.png" size={650} />
+
+Admettons que ces signaux soient additionnés sur la ligne par des additionneurs, ces signaux sont des sinus purs et vont simplement se superposés, la ligne ne transmettra qu’un seul sinus pur.
+
+Il est alors impossible pour le récepteur de savoir quel part de ce sinus est issu de tel ou tel émetteur.
+
+Ce phénomène se produit pour chaque fréquence du signal reçu, la transmission de signaux simultanés sur le même medium est donc impossible en bande de base. Il existe une solution pour envoyer plusieurs signaux sur le même medium de manière simultanés : la modulation.
+
+## Transmission en bande large
+
+A l’aide d’un modulateur, on transforme le signal (analogique ou numérique) à transmettre pour décaler son spectre de fréquence vers les hautes fréquences, on dit que le signal est modulé.
+
+#### Avant modulation :
+
+<Image src="https://i.imgur.com/9FfAH6n.png" size={700} />
+
+#### Après modulation :
+
+<Image src="https://i.imgur.com/ZTuHkRj.png" size={700} />
+
+A la réception, à l’aide d’un démodulateur, on sélectionne la plage de fréquence que l’on souhaite "écouter".
+
+Le signal est alors démodulé, pour être repositionné dans ses fréquences d’origine. Pour transmettre des signaux simultanément, on module chacun d’entre eux vers une plage de haute fréquence différente :
+
+<Image src="https://i.imgur.com/IX04kam.png" size={750} />
+
+On voit que les signaux ne sont pas mélangés (fréquenciellement) sur le médium. Ils occupent des plages de fréquences bien distinctes.
+A la réception, on peut donc reconstituer chaque signal indépendamment en sélectionnant différentes plages de haute fréquence à démoduler pour les rapporter à leur fréquence d’origine.
+
+Dans ce cas la bande passante du médium doit être bien plus large que celle des messages d’origine, on dit que l’on transmet le signal en bande large.
+La modulation permet d’envoyer plusieurs messages simultanément sur le même médium. Mais cela n’est pas la seule raison pour laquelle on a recours à la modulation !
+
+Par exemple, dans le cas d’une transmission d’un message par ondes hertziennes (par ondes électromagnétiques), on a besoin d’une antenne d’émission et d’une antenne de réception.
+
+Pour émettre ces ondes hertziennes (ou ondes électromagnétiques, OEM), on utilise assez souvent des antennes de type quart d’onde. Ces antennes ont la particularité d’avoir une longueur d’au moins un quart de la longueur d’onde du signal à transmettre :
+
+<Image src="https://i.imgur.com/1fqj7yA.png" size={750} />
+
+Admettons que le souhaite transmettre une voix de basse produisant une fréquence dominante de $$f = 110Hz$$. La période $$T$$ associée est alors égale à $$T = \frac{1}{F} = \frac{1}{110} = 0.0091s$$.
+
+La longueur d’onde $$\lambda$$ du signal à transmettre (qui est égale à la vitesse de la lumière $$c \times$$ la période du signal à transmettre $$T$$) est alors égale à $$\lambda = c \times T = 300000000 m/s \times 0.0091s = 2 727 km$$. Une antenne de type quart d’onde devrait donc ici avoir une longueur de $$681km$$, ce qui est difficile voire impossible à mettre en oeuvre !
+
+Toutefois, si ce signal est modulé pour transposer cette fréquence au-delà de f = 10Mhz, la période du signal devient alors inférieure à T = 10-7s.
+La longueur $$\lambda$$ du signal à transmettre est alors inférieure à $$\lambda = c \times T = 300000000 m/s \times 10 - 7s = 30 cm$$. Grâce à la modulation, l’antenne peut ne mesurer que $$8cm$$ ce qui est facile à réaliser et à transporter.
+
+<Image src="https://i.imgur.com/9fSFZVr.png" size={750} />
+
+## Types de modulation en transmission en bande large
+
+Il existe plusieurs manières de moduler un signal.
+
+L’émetteur produit un signal électrique de forme sinusoïdale :
+
+```math
+e0 = a \times cos(\omega 0 \times t + \Phi)
 ```
+
+-   $$A$$ représentant l’amplitude du signal
+-   $$\omega 0$$ représentant la fréquence de l’onde porteuse $$\omega = 2 \times \pi \times fo$$
+-   $$\Phi$$ le déphasage à l’origine
+-   $$t$$ le temps en seconde
+
+Pour transporter une information on peut modifier un des trois paramètres :
+
+-   On parle de modulation d’amplitude lorsqu’on modifie l’amplitude. Paramètre $$A$$
+-   On parle de modulation de fréquence lorsqu’on modifie la fréquence porteuse. Paramètre $$\omega 0$$
+-   On parle de modulation de phase lorsqu’on modifie la phase. Paramètre $$\Phi$$
+
+<Image src="https://i.imgur.com/25WJTs8.png" size={600} />
+
+### 1. Modulation d’amplitude
+
+On peut faire par exemple de la modulation d’amplitude.
+
+Le principe consiste à modifier l’amplitude du signal de la porteuse ($$A$$). Pour simplifier on oubliera le paramètre de phase sur lequel on n’agit pas. : $$e0 = A \times cos(\omega 0 \times t)$$
+
+On le signal de la porteuse :
+
+```math
+A = [1 + m \times cos(\omega s \times t)]
+```
+
+Le signal envoyé à l’antenne aura l’équation suivante :
+
+```math
+e(t) = A \times [1 + m \times cos(\omega s \times t)] \times cos(\omega 0 \times t)
+```
+
+-   $$m$$ est appelé indice de modulation
+-   $$\omega s$$ signal sinusoïdal à qui se superpose au signal de la porteuse
+
+L’indice de modulation utilisé en AM est en principe inférieur à 1, une valeur de m supérieure à 1 correspond à une **surmodulation**. Cette surmodulation sera à l’origine d’une distorsion inacceptable si le récepteur utilise un détecteur crête.
+
+<Image src="https://i.imgur.com/DuMyOnR.png" size={700} />
+
+### 2. Analyse spectrale du signal modulé
+
+L’analyse spectrale consiste à étudier les signaux électriques non pas en observant leur évolution dans le temps mais à regarder uniquement les fréquences contenues dans les signaux.
+
+On part de l’équation temporelle que l’on développe :
+
+```math
+e(t) = A \times [1 + m \times cos(\omega s \times t)] \times cos(\omega 0 \times t)
+```
+
+```math
+e(t) = A \times m \times cos(\omega 0 \times t) + E0 \times m \times cos(\omega s \times t) \times cos(\omega 0 \times t)
+```
+
+<Image src="https://i.imgur.com/Ma418Ku.png" size={600} />
+
+Le signal modulé en fréquence comporte 3 fréquences :
+
+-   La fréquence porteuse $$Fo$$
+-   Une fréquence $$Fo- \omega s$$ appelé fréquence latérale inférieure
+-   Une fréquence $$Fo+ \omega s$$ appelé fréquence latérale supérieure.
+
+#### Cas d'un signal analogique
+
+<Image src="https://i.imgur.com/C6U0AqO.png" size={700} />
+
+Cela consiste à décaler le signal à transmettre et le multiplier par un signal de haute fréquence appelé porteuse.
+
+On obtient un signal modulé dont l’enveloppe correspond au signal à transmettre.
+
+Cette modulation s’appelle la **modulation AM**.
+
+<Image src="https://i.imgur.com/RgmcJpZ.png" size={650} />
+
+#### Cas d'un signal numérique
+
+On peut aussi moduler un signal numérique à l’aide d’une porteuse à haute fréquence.
+
+Cette modulation s’appelle la **modulation ASK** (Amplitude Shift Keying).
+
+<Image src="https://i.imgur.com/gIjIWC3.png" size={700} />
+
+L’amplitude de la porteuse est modulée en fonction des valeurs binaires à transmettre au cours du temps.
+
+-   La valeur binaire 1 est associée ici à une amplitude faible pour la porteuse
+-   La valeur binaire 0 est associée ici à une amplitude grande pour la porteuse
+
+<Image src="https://i.imgur.com/7X8GpKw.png" size={700} />
+
+### 3. Modulation de fréquence
+
+On peut aussi faire de la modulation de fréquence.
+
+#### Cas d'un signal analogique
+
+Cette modulation consiste à générer une porteuse dont la fréquence varie en fonction de l’amplitude du signal à transmettre.
+
+<Image src="https://i.imgur.com/NlndMZ9.png" size={700} />
+
+On obtient un signal modulé dont la variation de fréquence est l’image du signal à transmettre.
+
+Cette modulation s’appelle la **modulation FM**.
+
+<Image src="https://i.imgur.com/OMtBdV8.png" size={700} />
+
+#### Cas d'un signal numérique
+
+On peut aussi moduler un signal numérique à l’aide d’une porteuse à haute fréquence.
+
+Cette modulation s’appelle la **modulation FSK** (Frequency Shift Keying).
+
+<Image src="https://i.imgur.com/YsDUFzV.png" size={700} />
+
+La fréquence de la porteuse est modulée en fonction des valeurs binaires à transmettre au cours du temps.
+
+Si on note $$f$$ la fréquence de la porteuse et $$\Delta f$$ le décalage en fréquence dépendant de la valeur binaire à transmettre alors :
+
+-   La valeur binaire 1 est associée ici à une porteuse de fréquence $$f - \Delta f$$
+-   La valeur binaire 0 est associée ici à une porteuse de fréquence $$f + \Delta f$$
+
+<Image src="https://i.imgur.com/Yq2OkkK.png" size={700} />

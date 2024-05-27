@@ -26,16 +26,54 @@ Il existe deux états spécifiques qui sont :
 
 Il est possible de rattacher à un état une activité, une action d’entrée et une action de sortie. Elles possèdent des noms d'événement prédéfinis correspondant à des **déclencheurs particuliers** : "entry", "exit" et "do".
 
-| Action | Description                                                                                                                                                                                                                                                                             |
-| ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| entry  | Permet de spécifier une action exécutée dès l'entrée dans l'état. Ce type d’action constitue souvent les configurations ou initialisations nécessaires à certains états.                                                                                                                |
-| exit   | Permet de spécifier une action exécutée à la sortie de l'état. Une action « exit » permet souvent de sortir « proprement » d’un état.                                                                                                                                                   |
-| do     | Activité exécutée tant que le système ou l’objet se trouve dans l'état et dès que l'action liée à « entry » est terminée. Si une transition externe se déclenche pendant que l'activité « do » est en cours, cette dernière est interrompue et l'activité « exit » de l'état s'exécute. |
+<Image src="https://i.imgur.com/lDk2e1Q.png" size={300} />
+
+| Action | Description                                                                                                                                                                                                                                                                       |
+| ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| entry  | Permet de spécifier une action exécutée dès l'entrée dans l'état. Ce type d’action constitue souvent les configurations ou initialisations nécessaires à certains états.                                                                                                          |
+| exit   | Permet de spécifier une action exécutée à la sortie de l'état. Une action "exit" permet souvent de sortir "proprement" d’un état.                                                                                                                                                 |
+| do     | Activité exécutée tant que le système ou l’objet se trouve dans l'état et dès que l'action liée à "entry" est terminée. Si une transition externe se déclenche pendant que l'activité "do" est en cours, cette dernière est interrompue et l'activité "exit" de l'état s'exécute. |
 
 ## Transition et évènement
 
 Les états sont reliés entre eux par des connexions unidirectionnelles appelées transitions externes. Elles sont représentées par une flèche. Une transition externe constitue un changement d’état allant de l’état source à un état cible. Un état est actif lorsqu’une transition y mène et devient inactif lorsqu’une transition le quitte. Elle peut être déclenchée par un évènement, par une condition ou automatiquement Transition implicite Il existe quatre types d’évènements associés à une transition :
 
-<Image src="https://i.imgur.com/7ff438j.png" size={400} />
+<Image src="https://i.imgur.com/7ff438j.png" size={300} />
 
 <Image src="https://i.imgur.com/Rlm8Vfe.png" size={650} />
+
+Une condition de garde est une expression booléenne faisant intervenir des entrées et/ou des variables internes. Elle autorise le passage d’un état à un autre.
+
+<Image src="https://i.imgur.com/xY1tNnQ.png" size={300} />
+
+Une transition réflexive entraîne une sortie puis une nouvelle entrée dans ce même état.
+
+<Image src="https://i.imgur.com/Snlld1E.png" size={250} />
+
+## Point de jonction ou de décision
+
+Un point de jonction est représenté par un cercle plein. Il permet de partager des segments de transition afin d'obtenir une notation plus compacte ou plus lisible des chemins alternatifs. Dans l’exemple la transition entre « Etat 1 » et « Etat 4 » est franchie si les évènements « e1 » et « e4 » sont déclenchés dès le début du franchissement.
+
+<Image src="https://i.imgur.com/Nu3EFo2.png" size={300} />
+
+Un point de décision possède une entrée et au moins deux sorties. Dans l’exemple après le déclenchement l’évènement « e1 », si l’évènement « e2 » est déclenché, la transition entre « Etat 1 » et « Etat 2 » est franchie. La transition entre « Etat 1 » et « Etat3 » est franchie si l’évènement « e3 » est déclenché.
+
+<Image src="https://i.imgur.com/EPBWJSk.png" size={300} />
+
+## Bifurcation et Union
+
+Une bifurcation active deux états à partir d'un état antérieur. Une union active un état à partir de deux états précédents.
+
+<Image src="https://i.imgur.com/XpJiNgK.png" size={300} />
+
+## État composite
+
+Un état composite (aussi appelé super-état) permet d’englober plusieurs sous-états.
+
+<Image src="https://i.imgur.com/O4TkbS0.png" size={600} />
+
+## État composite orthogonal
+
+Un état orthogonal permet de réaliser plusieurs opérations en parallèle.
+
+<Image src="https://i.imgur.com/Au9BQH6.png" size={500} />

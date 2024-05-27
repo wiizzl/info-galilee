@@ -3,11 +3,201 @@ title: Réseaux
 description: Dans ce chapitre, nous allons voir comment des ordinateurs ou autres périphériques sont capables dans un réseau de communiquer entre eux.
 ---
 
-Réseaux
+# 1/ Taille des Réseaux
 
-test
-$$x^2 + \sqrt{5}$$
+## LAN (Local Area Network)
 
-```js
-console.log("test");
-```
+Réseau à l'échelle d'une entreprise ou d'un particulier.
+
+<Image src="https://i.imgur.com/2PBprGo.png" size={700} />
+
+## MAN (Metropolitan Area Network)
+
+Réseau à l'échelle d'une ville.
+
+<Image src="https://i.imgur.com/LGil3lL.png" size={700} />
+
+## WAN (Wide Area Network)
+
+Réseau à l'échelle mondiale comme Internet par exemple.
+
+<Image src="https://i.imgur.com/Kc3j7m2.png" size={700} />
+
+# 2/ Topologie des réseaux
+
+## Le réseau point à point
+
+Dans une topologie point-à-point, la seule destination est l’autre point. La ligne est un point unique de défaillance (single point of failure, soit un point d’un système informatique dont le reste du système est dépendant et dont une panne entraîne l’arrêt complet du système.)
+
+<Image src="https://i.imgur.com/6fViXq3.png" size={400} />
+
+## Le réseau en bus
+
+Dans une topologie en bus, un seul canal est partagé par des points multiples. Une rupture de connexion empêcherait tout point de communiquer avec l’autre.
+
+<Image src="https://i.imgur.com/rNMMJrN.png" size={400} />
+
+## Le réseau en anneau
+
+Dans une topologie en anneau, la rupture d’une liaison n’empêchera aucun point de communiquer avec l’autre.
+
+<Image src="https://i.imgur.com/ZHgF2h0.png" size={400} />
+
+## Le réseau en étoile
+
+Dans une simple topologie en étoile, le point de concentration est un point unique de défaillance. Selon l’endroit d’une rupture dans une topologie en étoile étendue, une partie des noeuds seront isolés les uns par rapport à autres noeuds.
+
+<Image src="https://i.imgur.com/L2rqeSC.png" size={400} />
+
+## Le réseau maillé
+
+Dans une topologie maillée, tous les noeuds sont interconnectés entre eux de telle sorte que les communications peuvent résister à des ruptures multiples. La redondance est maximale. Chaque noeud ajouté augmente de manière exponentielle le nombre de liaisons pour assurer le maillage.
+
+<Image src="https://i.imgur.com/uqF0h4E.png" size={400} />
+
+# 3/ Les supports physique de transmission
+
+## Le câble coaxial
+
+Le câble coaxial n'est aujourd'hui pratiquement plus utilisé.
+
+<Image src="https://i.imgur.com/SMNuffb.png" size={400} />
+
+## Les paires torsadées
+
+Les paires torsadées sont aujourd'hui encore très utilisées.
+
+<Image src="https://i.imgur.com/gIkk7SW.png" size={400} />
+
+Dans un câble RJ-45 croisé on permute deux à deux les paires Transmission de données (TX) et Réception de données (RX), c'est-à-dire les conducteurs Blanc-Vert (TX+) et Blanc-Orange (RX+), Vert (TX-) et Orange (RX-). Le câble croisé est utilisé pour connecter deux appareils identiques ensemble et ainsi s'affranchir d'un hub ou d'un switch Le câble droit est utilisé pour connecter l'appareil à un hub ou un switch Remarque : Certains appareils comme les switchs et certaines cartes réseau sont capables d'analyser si le câble est croisé ou non (natif pour les cartes gigabit).
+
+<Image src="https://i.imgur.com/IVaOXxG.png" size={400} />
+
+## La fibre optique
+
+La fibre optique est particulièrement utilisée pour les gros débit.
+
+<Image src="https://i.imgur.com/g3aODUM.png" size={400} />
+
+## Le CPL
+
+CPL (courants Porteurs en Ligne) utilisant des lignes d’alimentation électriques : techniques réservée le plus souvent aux réseaux domestiques ("indoor").
+
+<Image src="https://i.imgur.com/N6ew8BA.png" size={400} />
+
+## Le WiFi
+
+Wi-Fi (Wireless Fidelity) : ses protocoles sont régis par la norme IEEE 802.11 et ses déclinaisons.
+
+<Image src="https://i.imgur.com/8jJsXGr.png" size={400} />
+
+## Le Bluetooth
+
+Bluetooth avec son service RFCOMM.
+
+<Image src="https://i.imgur.com/h9SbDks.png" size={400} />
+
+# 4/ L'adressage
+
+## L'adresse IP
+
+Une adresse IP (Internet Protocol) est constituée d’un nombre binaire de 32 bits. Pour faciliter la lecture et la manipulation de cette adresse on la représente plutôt en notation décimale pointée.
+
+<Image src="https://i.imgur.com/44JLyZw.png" size={600} />
+
+Une adresse IP d’un équipement, codée sur 4 octets, contient à la fois un identifiant réseau (**NetID**) et un identifiant équipement (**HostID**).
+
+<Image src="https://i.imgur.com/eqwxU7U.png" size={550} />
+
+Dans le cas des réseaux "standards" (sans sous-réseaux) la partie Identifiant Réseau peut être codée sur 1, 2 ou 3 octets. Le nombre de bits restants pour la partie HostID détermine le nombre d’équipements pouvant être connectés sur le réseau.
+
+## Les classes d'adresses IP
+
+En fonction du nombre d’équipements pouvant être connectés à un réseau, les adresses IP appartiennent à la classe A, B ou C. (il existe deux autres classes : la classe D et la classe E)
+
+Le format d’une adresse IP selon sa classe est le suivant :
+
+<Image src="https://i.imgur.com/9y4zu7w.png" size={550} />
+
+L’adresse IP du réseau est une adresse IP avec tous les bits de la partie "ID Hôte" à 0. C’est donc une adresse réservée et non attribuable à un équipement.
+Une autre combinaison est réservée. C’est celle où tous les bits de la partie "ID Hôte" sont à 1. Cette adresse est l’adresse de diffusion (broadcast) et sert à désigner tous les hôtes du réseau.
+
+#### Exemple :
+
+<Image src="https://i.imgur.com/JCqDxHe.png" size={500} />
+
+<Image src="https://i.imgur.com/W6hvFJ4.png" size={500} />
+
+<Image src="https://i.imgur.com/rE0AJr5.png" size={500} />
+
+# 5/ L'architecture client/serveur
+
+-   Un **client** : Les caractéristiques d’un client sont les suivantes : il est d’abord actif (ou maître), il envoie des requêtes au serveur, il attend et reçoit les réponses du serveur.
+-   Un **serveur** : Un serveur est initialement passif, il attend, il est à l’écoute, prêt à répondre aux requêtes envoyées par des clients. Dés qu’une requête lui parvient, il la traite et envoie une réponse.
+-   Le **dialogue** : Le client et le serveur doivent bien sûr utiliser le même protocole de communication. Un serveur est généralement capable de servir plusieurs clients simultanément.
+
+#### Remarques :
+
+Une fois le client traité, le serveur peut en traiter un autre. Il existe des serveurs multiclients comme les serveurs Web/http qui sont capables de traiter plusieurs clients en même temps. Il existe aussi des serveurs "non connectés", dans ce cas il n’y a pas de connexion ou de déconnexion.
+
+Un autre type d’architecture réseau est le pair à pair (**peer to peer en anglais ou P2P**), dans lequel chaque ordinateur ou logiciel est à la fois client et serveur.
+
+<Image src="https://i.imgur.com/fU3C6nJ.png" size={600} />
+
+## Avantages et inconvenients de l'architecture client/serveur
+
+### 1. Avantages d'une architecture client/serveur
+
+Toutes les données sont centralisées sur un seul serveur, on a donc "un contrôle de sécurité simplifié".
+
+Les technologies supportant l’architecture client/serveur sont plus matures que les autres (et plus anciennes).
+
+L’administration se porte au niveau serveur. Toute la complexité/puissance peut être déportée sur le(s) serveur(s), les utilisateurs utilisant simplement un client léger.
+
+Les serveurs étant centralisés, cette architecture est particulièrement adaptée et véloce pour retrouver et comparer de vastes quantités d’information (moteur de recherche sur le web).
+
+### 2. Inconvénients d'une architecture client/serveur
+
+Si trop de client veulent communiquer sur le serveur en même temps, ce dernier risque de ne pas supporter la charge (alors que les réseaux pair à pair fonctionnent mieux en ajoutant de nouveaux participants).
+
+Si le serveur n’est plus disponible, plus aucun des clients ne fonctionne (le réseau pair à pair continue à fonctionner, même si plusieurs participants quittent le réseau).
+
+Les coûts de mise en place et de maintenance sont élevés.
+
+En aucun cas les clients ne peuvent communiquer entre eux, entraînant une asymétrie de l’information au profit des serveurs.
+
+## Le protocole HTTP
+
+La consultation des pages sur un site web a un fonctionnement basé sur une architecture client/serveur. Un internaute connecté au réseau via son ordinateur et un navigateur web est le client, le serveur est constitué par le ou les ordinateurs contenant les applications qui délivrent les pages demandées.
+
+Dans ce cas, c’est le protocole de communication HTTP (HyperText Transfer Protocol) qui est utilisé.
+
+Les navigateurs sont les clients (Firefox, Internet Explorer, …). Ces clients se connectent à des serveurs http tels qu’Apache http Server ou IIS (Internet Information Services).
+
+### 1. Chronologie d’une communication (requête HTTP)
+
+Que se passe-t-il lors d’une requête client pour afficher une page web (ici la page web http://xyz.com/home.html) :
+
+-   Le serveur possède un port en écoute (par défaut le port 80)
+-   Le client http se connecte au port en écoute du serveur
+-   Le client transmet une requête à l'aide d’une commande GET par exemple
+-   Le serveur transmet au client la réponse à sa requête avec le contenu html de la page web
+-   Le navigateur internet du client scanne le contenu html qui vient de lui être envoyé à la recherche d’URL d’images, vidéos...
+-   Si le scan du contenu html contient des URL d’images, vidéos, alors le client transmet autant de commandes GET que d’URL d’images, vidéos trouvées
+-   Le serveur transmet au client autant de réponses que de requêtes client, avec comme contenu dans chacune de ses réponses une image ou une vidéo
+
+<Image src="https://i.imgur.com/SDZQXDQ.png" size={550} />
+
+#### Remarque :
+
+La ou les déconnexions du serveur n’apparaissent pas. Il faudrait savoir si l’option "connexion persistante" (Connection: Keep-Alive) est demandée par le navigateur.
+
+### 2. Le FTP
+
+Le protocole de transfert de fichiers, ou FTP (File Transfer Protocol), est un protocole de communication destiné à l’échange informatique de fichiers sur un réseau TCP/IP. Il permet, depuis un ordinateur, de copier des fichiers vers un autre ordinateur du réseau, d’alimenter un site web, ou encore de supprimer ou de modifier des fichiers sur cet ordinateur.
+
+FTP obéit à un modèle client/serveur, c’est-à-dire qu’une des deux parties, le client, envoie des requêtes et le serveur répond.
+
+En pratique, le serveur est un ordinateur sur lequel fonctionne un logiciel lui-même appelé serveur FTP. Pour accéder à un serveur FTP, on utilise un logiciel client FTP (possédant une interface graphique comme FileZilla par exemple ou en ligne de commande).
+
+<Image src="https://i.imgur.com/2I5zsGE.png" size={600} />

@@ -3,11 +3,142 @@ title: Actionneurs
 description: Vous retrouverez ici l'ensemble des actionneurs avec leurs caractéristiques, schéma de cablage et exemples de programme.
 ---
 
-Actionneurs
+# 1/ Afficheur OLED
 
-test
-$$x^2 + \sqrt{5}$$
+## Définition
 
-```js
-console.log("test");
+L'écran OLED comporte un afficheur graphique ayant une diagonale de 3,3 cm pour une résolution de 128 X 64 pixels. Cet écran monochrome piloté par un circuit intégré SSD1306 permet d'afficher du texte, de dessiner des formes (traits, rectangles, cercles) et des images au format bitmap.
+
+## Caractéristiques
+
+-   Fonctionnement sous $$3.3$$ à $$5V$$
+-   Liaison $$I^2C$$
+-   Ecran monochrome
+-   Résolution: 128x64 ou 128x32 pixels
+
+<Image src="https://i.imgur.com/8WNCrCK.png" size={400} />
+
+## Cablage
+
+-   La borne GND correspond à la masse. Elle doit être branchée au GND de la carte.
+-   La borne VDD correspond à l'alimentation. Elle doit être branchée au $$3.3V$$.
+-   La borne SCK correspond au signal d'horloge (liaison série synchrone).
+-   La borne SDA correspond aux données reçues (à afficher)
+
+<Image src="https://i.imgur.com/dxAuOol.png" size={500} />
+
+Dans le cas de l'utilisation d'un afficheur SSD1306, il faudra importer la bibliothèque SSD1306, dans le casd'un SH1106, il faudra alorsimporter la bibliothèque SH1106 mais le fonctionnement et notamment la programmation restent identiques.
+
+## Exemple de programme
+
+```python
+from machine import Pin, I2C
+import ssd1306
+
+i2c = I2C(sda=Pin(4), scl=Pin(5))
+display = ssd1306.SSD1306_I2C(128, 64, i2c)
+
+display.text("Hello world !", 0, 0, 1)
+display.show()
+```
+
+# 2/ Servomoteurs
+
+## Définition
+
+Les servomoteurs, souvent abrégés en « servo » tout court par leurs utilisateurs, sont des moteurs d'un type particulier, très appréciés pour faire tourner quelque chose jusqu'à une position bien précise et capable de maintenir cette position jusqu'à l'arrivée d'une nouvelle instruction. Ils sont très utilisés dans le modélisme (direction des voitures télécommandées, commande des gouvernes de dérive et de profondeur sur les avions, etc.), mais ont aussi leur place dans la robotique et l'industrie par exemple dans des vannes pour réguler des flux de liquides.
+
+## Caractéristiques
+
+-   Alimentation : $$4.8$$ à $$6 V_{cc}$$
+-   Course : $$2 x 90°$$
+-   Couple : $$1.6 kg.cm$$ à $$4.8 V_{cc}$$
+-   Vitesse : $$0.12 s/60°$$ à $$4.8 V_{cc}$$
+-   Longueur du cordon : $$180mm$$
+-   Température de service : $$-30$$ à $$60 °C$$
+-   Dimensions : $$22 \times 12.5 \times 29,5mm$$
+
+<Image src="https://i.imgur.com/gD4KBca.png" size={400} />
+
+## Cablage
+
+<Image src="https://i.imgur.com/A71GyH7.png" size={500} />
+
+## Exemple de programme
+
+```python
+import time
+import machine
+
+p4 = machine.Pin(4)
+servo = machine.PWM(p4, freq=50)
+
+while True:
+    servo.duty(30)
+    time.sleep(2)
+    servo.duty(130)
+    time.sleep(2)
+```
+
+# 3/ Module relais
+
+## Définition
+
+Un relais est un interrupteur à commande électrique et comme tout autre interrupteur, il peut être allumé ou éteint, laissant passer ou non le courant. Il peut être contrôlé avec des basses tensions, comme le 3,3V fourni par les GPIO ESP32/ESP8266 et nous permet de contrôler des hautes tensions comme le 12V, 24V ou la tension secteur (230V en Europe et 120V aux États-Unis).
+
+Sur le côté gauche, il y a deux ensembles de trois prises pour connecter les hautes tensions, et les broches sur le côté droit (basse tension) se connectent aux GPIO ESP.
+
+<Image src="https://i.imgur.com/QfpVuRP.png" size={400} />
+
+Le module relais montré sur la photo précédente possède deux connecteurs, chacun avec trois prises : commun (COM), Normalement fermé (NC) et normalement ouvert (NON).
+
+-   **COM** : connectez le courant que vous souhaitez contrôler (tension secteur).
+-   **NC** (normalement fermé) : la configuration normalement fermée est utilisée lorsque l’on souhaite que le relais soit fermé par défaut. Les broches NC sont COM sont connectées, ce qui signifie que le courant circule à moins que vous n’envoyiez un signal de l’ESP au module de relais pour ouvrir le circuit et arrêter le flux de courant.
+-   **NON** (normalement ouvert) : la configuration normalement ouverte fonctionne dans l’autre sens : il n’y a pas de connexion entre les broches NO et COM, donc le circuit est interrompu à moins que vous n’envoyiez un signal de l’ESP pour fermer le circuit.
+
+Le côté basse tension a un jeu de quatre broches et un jeu de trois broches. Le premier ensemble se compose de VCC et GND pour mettre le module sous tension, et l’entrée 1 (EN 1) et l’entrée 2 (EN 2) pour contrôler respectivement les relais inférieur et supérieur.
+
+Si votre module relais n’a qu’un seul canal, vous n’aurez qu’une seule broche IN. Si vous avez quatre canaux, vous aurez quatre broches IN, et ainsi de suite.
+
+Le signal que vous envoyez aux broches IN détermine si le relais est actif ou non. Le relais est déclenché lorsque l’entrée passe en dessous d’environ 2V. Cela signifie que vous aurez les scénarios suivants :
+
+-   Configuration normalement fermée (**NF**) :
+    -   Signal **HAUT** : le courant circule
+    -   Signal **BAS** : le courant de circule pas
+-   Configuration normalement ouverte (**NON**) :
+    -   Signal **HAUT** : le courant de circule pas
+    -   Signal **BAS** : le courant circule
+
+Vous devez utiliser une configuration normalement fermée lorsque le courant doit circuler la plupart du temps et que vous ne souhaitez l’arrêter qu’occasionnellement.
+
+Utilisez une configuration normalement ouverte lorsque vous souhaitez que le courant circule occasionnellement (par exemple, allumez une lampe de temps en temps).
+
+<Image src="https://i.imgur.com/Tf1qQmq.png" size={400} />
+
+Le deuxième jeu de broches se compose de GND, VCC, et JD-VCC épingles. le JD-VCC broche alimente l’électroaimant du relais. Notez que le module a un capuchon de cavalier reliant les broches VCC et JD-VCC ; celui montré ici est jaune, mais le vôtre peut être d’une couleur différente.
+
+Avec le capuchon du cavalier, le VCC et JD-VCC les broches sont connectées. Cela signifie que l’électroaimant du relais est directement alimenté par la broche d’alimentation ESP, de sorte que le module relais et les circuits ESP ne sont pas physiquement isolés les uns des autres.
+
+Sans le capuchon du cavalier, vous devez fournir une source d’alimentation indépendante pour alimenter l’électro-aimant du relais via le JD-VCC épingler. Cette configuration isole physiquement les relais de l’ESP grâce à l’optocoupleur intégré au module, ce qui évite d’endommager l’ESP en cas de pointes électriques.
+
+## Cablage
+
+<Image src="https://i.imgur.com/FAmLd1m.png" size={500} />
+
+## Exemple de programme
+
+Dans cet exemple, comme nous utilisons une configuration normalement ouverte, nous devons envoyer un signal BAS pour laisser passer le courant et un signal HAUT pour arrêter le courant.
+
+```python
+from machine import Pin
+import time
+
+relay = Pin(26, Pin.OUT)
+
+while True:
+    relay.value(0)
+    time.sleep(0)
+
+    relay.value(1)
+    time.sleep(10)
 ```

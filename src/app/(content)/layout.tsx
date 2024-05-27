@@ -13,7 +13,7 @@ export default function CoursLayout({ children }: PropsWithChildren) {
                     <aside className="fixed top-14 z-30 hidden h-[calc(100vh-3.5rem)] w-full shrink-0 overflow-y-auto border-r py-6 pr-2 md:sticky md:block lg:py-10">
                         <Nav />
                     </aside>
-                    <Section className="min-h-screen py-10">{children}</Section>
+                    <main className="min-h-screen py-10">{children}</main>
                 </div>
             </Section>
         </div>

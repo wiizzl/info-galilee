@@ -95,7 +95,7 @@ export default makeSource({
         rehypePlugins: [
             rehypeKatex,
             rehypeSlug,
-            [rehypePrettyCode, { theme: "one-dark-pro", defaultLang: "plaintext" }],
+            [rehypePrettyCode, { theme: "github-dark", defaultLang: "plaintext" }],
             [rehypeAutolinkHeadings, { properties: { className: ["anchor"] } }],
         ],
     },

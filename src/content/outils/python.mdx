@@ -3,11 +3,421 @@ title: Python
 description: Vous retrouverez ici l'ensemble des éléments qui vous permettront de faire vos premiers pas en python.
 ---
 
-Python
+# 1/ Conditions et répétitions
 
-test
-$$x^2 + \sqrt{5}$$
+## Conditions if...elif...else
 
-```js
-console.log("test");
+### 1. Principe général
+
+La **structure conditionnelle if** va nous permettre d’exécuter un code si (et seulement si) une certaine condition est vérifiée.
+
+Les structures de contrôle conditionnelles (ou plus simplement conditions) vont nous permettre d’exécuter différents blocs de code selon qu’une condition spécifique soit vérifiée ou pas.
+
+Nous allons très souvent utiliser les conditions avec des variables : selon la valeur stockée dans une variable, nous allons vouloir exécuter un bloc de code plutôt qu’un autre.
+
+Python nous fournit les structures conditionnelles suivantes :
+
+-   La condition if ("si")
+-   La condition if…else ("si…sinon")
+-   La condition if…elif…else ("si…sinon si… sinon")
+
+### 2. Les opérateurs de comparaison
+
+Pour vérifier notre condition, nous allons bien souvent utiliser des opérateurs dont voici une liste non exhaustive :
+
+| Opérateur | Définition                                      |
+| --------- | ----------------------------------------------- |
+| ===       | Permet de tester l’égalité en valeur et en type |
+| !=        | Permet de tester la non-égalité                 |
+
+#### Exemple :
+
+```python
+a=3
+b=5
+
+"""Une condition est toujours suivie de ":" à la fin"""
+if a==b:
+    """Tout ce qui se trouve à l'intérieur de la condition doit être indenté"""
+    print("a est égale à b")
+else:
+    print("a est différent de b")
 ```
+
+La condition if…elif…else ("si…sinon si…sinon") est une structure conditionnelle encore plus complète que la condition if…else qui va nous permettre cette fois-ci d’effectuer autant de tests que l’on souhaite et ainsi de prendre en compte le nombre de cas souhaité.
+
+#### Exemple :
+
+```python
+a=3
+b=5
+c=7
+d=3
+
+if a==b:
+    print("a est égal à b")
+elif a==c:
+    print("a est égal a c")
+elif a==d:
+    print("a est égal à d")
+else:
+    print("a est différent de b, c et d")
+```
+
+## Boucle while
+
+Le mot "while" signifie "**tant quqe**".
+On exécute telle instruction **tant que** ma condition est vérifiée.
+
+#### Exemple :
+
+```python
+i=0
+
+while i<5:
+    print("j'aime les cacahuètes")
+    i=i+1
+```
+
+```
+>>>
+j'aime les cacahuètes
+j'aime les cacahuètes
+j'aime les cacahuètes
+j'aime les cacahuètes
+j'aime les cacahuètes
+>>>
+```
+
+## Boucle for
+
+La boucle for permet de faire des itérations sur un élément, comme une chaine de caractères ou une liste par exemple.
+
+#### Exemple :
+
+```python
+message = "Salut !"
+
+for element in message:
+    print(element)
+```
+
+```
+>>>
+S
+a
+l
+u
+t
+>>>
+```
+
+```python
+liste = [0, 1, 2, 3, 4]
+
+for element in liste:
+    print(element)
+```
+
+```
+>>>
+0
+1
+2
+3
+4
+>>>
+```
+
+```python
+for i in range(4):
+    print("Salut !")
+```
+
+```
+>>>
+Salut !
+Salut !
+Salut !
+Salut !
+>>>
+```
+
+# 2/ Dictionnaires, listes et tuples
+
+## Les listes
+
+Les listes sont des ensembles ordonnées de même type. Les éléments sont indexés, c'est à dire qu'il possède un indice indiquant sa position à l'intérieur de la liste. Les listes peuvent contenir différents types d'éléments : chaînes, variables, nombres, ...
+
+#### Exemple :
+
+```python
+L=[1, 5, 7, 8, 10, 2, 7, 25]
+```
+
+Une liste s'écrit toujours entre crochet. Chaque élément de la liste est indicé en fonction de sa position. Le premier élément est à l'indice 0.
+
+```python
+L=[2, 8, 4, 6, 7, 2, 9, 3]
+```
+
+L'élément d'indice 0 est 2. 7 est l'élément d'indice 4, c'est à dire qu'il est en 4ème position dans la liste.
+
+### 1. Opérations sur les listes
+
+-   Ajouter un élément à la fin de la liste L
+
+```python
+L.append(element_à_inserer)
+```
+
+-   Ajouter un élément à un emplacement donnée de la liste L
+
+```python
+L.insert(emplacement (indice), element_à_inserer)
+```
+
+-   L'opérateur + permet concaténer deux listes.
+
+```python
+["girafe", "oiseau"] + ["elephant", "serpent", "iguane"]
+```
+
+```python
+["girafe", "oiseau", "elephane", "serpent", "iguane"]
+```
+
+### 2. Indiçage des listes
+
+Comme nous l'avons évoqué précédemment, une liste est une liste d'élément ordonné grâce à un indice. Cet indice peut être positif ou négatif.
+
+L'avantage d'avoir un indiçage négatif est de pouvoir commencer à considérer les éléments à partir de la fin de la liste.
+
+### 3. Partie de liste
+
+On peut travailler sur une partie de liste.
+
+#### Exemple :
+
+```python
+L = [55, 56, 57, 58, 59, 60, 61, 62, 63]
+```
+
+-   Liste[3:5] = [58,59,60]
+-   Liste[:4] = [55,56,57,58,59]
+-   Liste[4:] = [59,60,61,62,63]
+
+### 4. Fonctions inhérentes aux listes
+
+-   L'instruction len()permet de connaître la longueur de la liste, c'est-à-dire le nombre d'éléments que contient la liste.
+
+```python
+Liste =  [55, 56, 57, 58, 59, 60, 61, 62, 63]
+
+print(len(Liste))
+```
+
+```
+>>>
+
+9
+
+>>>
+```
+
+-   On peut parcourir les éléments d'un tableau grâce à la fontion range.
+
+```python
+tableau = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+for i in range(0, 5):
+
+    print(tableau[i])
+```
+
+On peut aussi simplifier l'expression en écrivant simplement "**for element in liste**"
+
+```python
+tableau = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+for element in liste:
+
+    print(element)
+```
+
+## Les tuples
+
+Un tuple est constitué d'une collection ordonné d'éléments. Un tuple s'écrit entre parenthèse, les éléments étant séparés par des virgules. Un tuple peut évidemment contenir plus de 2 éléments.
+
+Une fois construit, un tuple ne peut pas être modifié.
+
+## Les dictionnaires
+
+Un dictionnaire est une table qui contient des éléments sous forme de **clés/valeurs**.
+
+Un dictionnaire s'écrit entre accolades. Chaque système clé/valeur est représenté de la façon suivante: clé:valeur. Les éléments sont séparés par des virgules.
+
+#### Exemple :
+
+```python
+dico = {"carottes": 2, "navets": 5, "patates": 4}
+```
+
+L'accès aux éléments du dictionnaire ne se fait pas avec des indices comme pour les listes mais avec les clés associées.
+
+Pour accéder aux clés d'un dictionnaire, on utilise la fonction keys().
+
+```python
+dico = {"carottes": 2, "navets": 5, "patate": 4}
+
+print(dico.keys())
+```
+
+```
+>>>
+
+dict_keys(["carottes", "navets", "patates"])
+
+>>>
+```
+
+-   Pour accéder aux valeurs d'un dictionnaire, on utilise la fonction values().
+
+```python
+dico = {"carottes": 2, "navets": 5, "patate": 4}
+
+print(dico.values())
+```
+
+```
+>>>
+
+dict_values([2, 5, 4])
+
+>>>
+```
+
+-   Pour accéder aux systèmes clé/valeurs, on utilise la fonction items().
+
+```python
+dico = {"carottes": 2, "navets": 5, "patate": 4}
+
+print(dico.items())
+```
+
+```
+>>>
+
+dict_keys([("carottes": 2), ("navets": 5), ("patates": 4)])
+
+>>>
+```
+
+# 3/ Fonctions
+
+## Définition
+
+Une fonction permet de regrouper un bloc d'instructions et de lui donner un nom. On peut ensuite exécuter cette fonction en "l'appelant".
+
+#### Exemple :
+
+```python
+def carré():
+
+    """Une fonction est nommée ainsi grâce à def et termine par ":""""
+
+    """Le bloc d'instructions appartenant à la fonction est indenté"""
+
+    for i in range(5):
+
+        print(i*i)
+```
+
+```
+>>>
+0
+1
+4
+9
+16
+>>>
+```
+
+### 1. Les paramètres d'une fonction
+
+Une fonction peut prendre un ou plusieurs paramètres.
+
+#### Exemple :
+
+```python
+def carré(x): # x est un paramètre
+
+    print(x*x)
+```
+
+Lorqu'on appellera la fonction pour l'exécuter, il faudra préciser le paramètre x.
+
+```python
+carré(4)
+```
+
+```
+>>>
+16
+>>>
+```
+
+### 2. Valeur retournée par une fonction
+
+Une fonction peut retourner une valeur. L'instruction "return" va retourner la valeur demandée et interrompre immédiatement son exécution.
+
+#### Exemple :
+
+```python
+def carré(x):
+
+    y=x*x
+
+    return y
+```
+
+```python
+carré(4)
+```
+
+```
+>>>
+16
+>>>
+```
+
+### 3. Variables locales et globales
+
+-   Une variable locale est à l'intérieur de la fonction et ne peut être utilisée qu'à l'intérieur de cette fonction.
+-   Une variable globale est à l'extérieur de la fonction (généralement tout au début du programme) et peut être utilisé partout dans le programme.
+
+## Fonctions natives
+
+### 1. Définition
+
+Les fonctions natives sont des fonctions déjà intégrées dans python et que l'on peut utiliser directement.
+
+#### Exemple :
+
+-   La fonction **print()** : permet d'afficher une valeur
+-   La fonction **len()** : donne la longueur d'une liste
+
+### 2. Quelques fonctions natives, intégrées directement dans python 3
+
+| Fonction | Description                                                                                                               |
+| -------- | ------------------------------------------------------------------------------------------------------------------------- |
+| abs(x)   | Donne la valeur absolue de x. x peut être un nombre entier ou à virgule.                                                  |
+| bin(x)   | Converti un entier x en binaire.                                                                                          |
+| hex(x)   | Converti un nombre entier x en hexadécimal.                                                                               |
+| input    | Permet à l'utilisateur de rentrer une phrase, un nombre, ... en mode interactif.                                          |
+| len      | Donne la longueur d'une liste.                                                                                            |
+| max      | Retourne la plus grande valeur.                                                                                           |
+| min      | Retourne la plus petite valeur.                                                                                           |
+| print()  | Affiche l'élément entre parenthèses dans la console.                                                                      |
+| range()  | La fonction range retourne les entiers en fonction de la valeur de départ, la valeur d'arrivée, le pas (non obligatoire). |
+| sorted   | Retourne une liste triée.                                                                                                 |
