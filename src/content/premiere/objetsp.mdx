@@ -3,11 +3,82 @@ title: Objets connectés
 description: Dans ce chapitre, nous allons étudier comment les objets captent, stockent, traitent et transmettent des données, recevoir et donner des instructions un réseau appelé Internet of Things (IoT).
 ---
 
-Objets connectés Premiere
+# 1/ L'Internet des objets (IoT)
 
-test
-$$x^2 + \sqrt{5}$$
+Le terme **internet des objets (ou IoT : Internet of Things)** est une généralisation du mot "internet" à l’ensemble des objets. L’IoT est un vaste réseau de communication entre objets. On parle alors d’objets connectés.
 
-```js
-console.log("test");
-```
+Un **objet connecté** est un objet qui possède la capacité d’échanger des données avec d’autres entités physiques ou numériques, le plus souvent au travers d’internet.
+
+Un objet connecté possède les caractéristiques suivantes :
+
+-   une faible consommation
+-   une faible puissance de calcul
+-   un faible encombrement
+-   un faible prix
+
+# 2/ Les différentes catégories d'un objet connecté
+
+On peut assimiler un objet connecté à un système informatique embarqué doté d’une capacité à communiquer. Il existe trois catégories d’objets connectés : l’**objet connecté simple**, l’**objet connecté intelligent** et l’**objet connecté autonome**.
+
+## L'objet connecté simple
+
+Les objets dits "simplement connectés" reçoivent un certain nombre d’éléments ou d’informations, mais restent relativement passifs. La valeur ajoutée de ce type d’objets repose seulement sur sa capacité à se connecter.
+
+#### Exemple :
+
+-   Un détecteur de fumée connecté qui envoie un signal sur le téléphone du propriétaire en cas d’incendie.
+-   Une balance connectée qui transmet les données enregistrées sur une base de données accessible par ordinateur ou smartphone.
+
+<Image src="https://i.imgur.com/s3va21Y.jpeg" size={500} />
+
+## L'objet connecté intelligent
+
+L’objet connecté intelligent est non seulement connecté, mais il va en plus être équipé de logiciels capables de **produire de l’information construite**, et non pas uniquement de la donnée élémentaire (de la raw data, en anglais). Cette production d’information construite est une définition spécifique de l’intelligence, qui renvoie à la notion d’intelligence artificielle. Il ne s’agit pas d’une intelligence au sens global, mais de la capacité de l’objet connecté à effectuer certaines tâches spécifiques, comme analyser ou traiter des données. Ce type d’intelligence est caractérisé en anglais par le terme Smart, c’est ce qui a donné leur nom à nos smartphones.
+
+#### Exemple :
+
+Une balance connectée capable d’analyser des variations de poids, qui pourrait calculer l’indice de masse corporelle.
+
+<Image src="https://i.imgur.com/0qGuHwA.png" size={500} />
+
+## L'object connecté autonome
+
+L’objet de type autonome possède toutes les caractéristiques de l’objet intelligent. Il peut de surcroit effectuer des tâches plus avancées, comme analyser son environnement. Sur la base de l’analyse de son environnement, l’objet prend lui-même un certain nombre de décisions et agit. C’est à partir de ce stade que l’objet devient autonome. La valeur ajoutée d’un objet connecté autonome s’estime au degré d’intervention directe d’un humain. Moins il est nécessaire d’interagir avec un objet pour qu’il agisse, plus sa valeur ajoutée augmente.
+
+#### Exemple :
+
+La voiture autonome : la conduite est assurée par un logiciel d’intelligence artificielle. Le conducteur devient un simple passager.
+
+<Image src="https://i.imgur.com/1ujjfL4.png" size={500} />
+
+# 3/ Les réseaux IoT
+
+La valeur ajoutée des objets connectés réside dans leurs capacités à communiquer. Ils utilisent pour cela des moyens de communication sans fil.
+
+## Les familles de réseaux IoT
+
+### 1. Les réseaux LAN
+
+Les réseaux LAN (Local Area Network) sont des réseaux de **courte à moyenne portée** (entre 1 m et 100 m). Les plus connus sont le Bluetooth et le wifi, lequel permet des connexions à haut débit mais est très énergivore. Le wifi ne convient donc que pour les appareils branchés sur secteur ou dont l’alimentation électrique peut être aisée et fréquente. Il existe d’autres standards que le Bluetooth et le wifi, comme par exemple le NFC ou encore le RFID.
+
+### 2. Les réseaux cellulaires
+
+Les réseaux cellulaires sont des réseaux **longue portée** (jusqu’à 30 km). Ils sont basés sur la technologie GSM comme la 4G par exemple, et permettent de transférer une quantité importante de données (images, vidéos, ..) avec un **très haut débit**. Ils nécessitent l’installation d’une carte SIM dans l’appareil à connecter, afin d’identifier celui-ci sur le réseau de communication.
+
+### 3. Les réseaux LPWAN
+
+Les réseaux LPWAN (Low Power Wide Area Network) sont des réseaux longue portée (de l’ordre de plusieurs kilomètres) et à faible consommation énergétique. À l’image des réseaux Sigfox et LoRa, ces réseaux ont été spécifiquement conçus pour transporter les données IoT à faible cout.
+
+# 4/ Bilan
+
+Les objets connectés forment une famille extrêmement diversifiée, en expansion permanente. La diversité des technologies de radiocommunication répond à l’hétérogénéité de ces objets.
+
+<Image src="https://i.imgur.com/QFqUKiS.png" size={850} />
+
+## Les passerelles
+
+La plupart des objets connectés ne sont pas pourvus de connections directe au réseau internet. Ils s’y connectent à travers une passerelle (gateway). Ces passerelles jouent le rôle d’intermédiaire pour connecter l’objet à internet et envoyer ses données. C’est le cas par exemple de nos box, ou de nos smartphones.
+
+<Image src="https://i.imgur.com/UIlsRFp.png" size={850} />
+
+Ces passerelles fournissent tout ce qui est nécessaire en termes de connectivité, de sécurité et de management des appareils pour rendre les données disponibles sur internet.

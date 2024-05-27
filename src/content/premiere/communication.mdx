@@ -5,7 +5,7 @@ description: Dans ce chapitre, nous allons étudier les différents protocole ex
 
 # 1/ Le sens des échanges d'informations
 
-<Image src="https://i.imgur.com/nbwjrvB.png" width={700} height={700} />
+<Image src="https://i.imgur.com/nbwjrvB.png" size={700} />
 
 # 2/ Le type de communication
 
@@ -13,17 +13,17 @@ description: Dans ce chapitre, nous allons étudier les différents protocole ex
 
 Dans le cas d'une transmission parallèle, les bits sont envoyés en même temps, chacun via un fil.
 
-<Image src="https://i.imgur.com/1unsA10.png" width={400} height={400} />
+<Image src="https://i.imgur.com/1unsA10.png" size={400} />
 
 ## La transmission de type série
 
-<Image src="https://i.imgur.com/eziz0Ac.png" width={400} height={400} />
+<Image src="https://i.imgur.com/eziz0Ac.png" size={400} />
 
 Dans ce type de transmission, le mot binaire peut être en MSB first ou en LSB first.
 
 Pour mémoire :
 
-<Image src="https://i.imgur.com/5iNe473.png" width={600} height={600} />
+<Image src="https://i.imgur.com/5iNe473.png" size={600} />
 
 # 3/ La transmission série de type synchrone et asynchrone
 
@@ -31,13 +31,13 @@ Pour mémoire :
 
 La transmission synchrone permet de transmettre un bloc de bits d'information, appelé trame, sous la forme d'un flot continu de bits sans bit de synchronisation start et stop. Les données sont rythmées par une horloge qui assure un temps constant entre chaque bit envoyé, mais aussi entre chaque mot binaire.
 
-<Image src="https://i.imgur.com/qEkCoEB.png" width={500} height={500} />
+<Image src="https://i.imgur.com/qEkCoEB.png" size={500} />
 
 ## La transmission de type asynchrone
 
 La transmission de type asynchrone envoie les bits de données sans signal d'horloge. Il est alors nécessaire de "prévenir" le réceteur Que des données lui sont envoyées. Cela se fait au moyens de bits de start et stop.
 
-<Image src="https://i.imgur.com/xkLwe00.png" width={500} height={500} />
+<Image src="https://i.imgur.com/xkLwe00.png" size={500} />
 
 # 4/ La parité
 
@@ -45,7 +45,7 @@ Afin de détecter d'éventuelles erreurs de transmission, une transmission séri
 
 ## Cas d'une parité paire
 
-<Image src="https://i.imgur.com/48yfNWN.png" width={500} height={500} />
+<Image src="https://i.imgur.com/48yfNWN.png" size={500} />
 
 Dans notre exemple ici, le nombre de bits de données à 1 sont au nombre de 5, ce qui est impaire. Pour obtenir une parité paire, il suffit de mettre le bit de parité à 1 afin d'obtenir 6 bits à 1, soit un nombre pair. Si le nombre avait initialement été paire, alors le bit de parité aurait été à 0.
 

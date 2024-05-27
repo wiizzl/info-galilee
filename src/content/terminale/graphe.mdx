@@ -3,11 +3,39 @@ title: Graphe d'états
 description: Dans ce chapitre, nous allons nous intéresser à la modélsation des états dans lesquels se trouvent les objets techniques.
 ---
 
-Graphe d'états
+# 1/ Le langage UML
 
-test
-$$x^2 + \sqrt{5}$$
+Le Langage de Modélisation Unifié, de l'anglais Unified Modeling Language (UML), est un langage de modélisation graphique à base de pictogrammes conçu pour fournir une méthode normalisée pour visualiser la conception d'un système.
 
-```js
-console.log("test");
-```
+Il est couramment utilisé en développement logiciel et en conception orientée objet.
+
+# 2/ Objectif : Décrire le comportement dynamique d'une entité (logiciel, composant, objet...)
+
+Le diagramme états-transitions (State Machine Diagram ou Statechart Diagram) fait parti des diagrammes comportementaux. Son rôle, est de décrire le fonctionnement d’une machine (ou d’un objet) ayant un comportement séquentiel. Il représente les différents états (situations) dans lesquels peut se trouver la machine (ou l’objet) ainsi que la façon dont cette machine (ou l'objet) passe d’un état à l’autre en réponse à des événements.
+
+## Notion d'état
+
+Un système est à un moment donné dans un état particulier, identifié par un nom. À un état correspondent des actions, une activité. Le symbole graphique est de type Block et l’état est décrit clairement.
+
+Il existe deux états spécifiques qui sont :
+
+-   L'état initial : état dans lequel se trouve le système ou l’objet au départ de la séquence correspondant par exemple à la mise sous énergie ou la création de l’objet.
+-   L'état final : état correspondant à la fin du fonctionnement du système ou la destruction de l’objet.
+
+## Activité et action
+
+Il est possible de rattacher à un état une activité, une action d’entrée et une action de sortie. Elles possèdent des noms d'événement prédéfinis correspondant à des **déclencheurs particuliers** : "entry", "exit" et "do".
+
+| Action | Description                                                                                                                                                                                                                                                                             |
+| ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| entry  | Permet de spécifier une action exécutée dès l'entrée dans l'état. Ce type d’action constitue souvent les configurations ou initialisations nécessaires à certains états.                                                                                                                |
+| exit   | Permet de spécifier une action exécutée à la sortie de l'état. Une action « exit » permet souvent de sortir « proprement » d’un état.                                                                                                                                                   |
+| do     | Activité exécutée tant que le système ou l’objet se trouve dans l'état et dès que l'action liée à « entry » est terminée. Si une transition externe se déclenche pendant que l'activité « do » est en cours, cette dernière est interrompue et l'activité « exit » de l'état s'exécute. |
+
+## Transition et évènement
+
+Les états sont reliés entre eux par des connexions unidirectionnelles appelées transitions externes. Elles sont représentées par une flèche. Une transition externe constitue un changement d’état allant de l’état source à un état cible. Un état est actif lorsqu’une transition y mène et devient inactif lorsqu’une transition le quitte. Elle peut être déclenchée par un évènement, par une condition ou automatiquement Transition implicite Il existe quatre types d’évènements associés à une transition :
+
+<Image src="https://i.imgur.com/7ff438j.png" size={400} />
+
+<Image src="https://i.imgur.com/Rlm8Vfe.png" size={650} />

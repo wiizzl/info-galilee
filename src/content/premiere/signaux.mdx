@@ -3,11 +3,133 @@ title: Signaux électriques
 description: Ce chapitre montre les différents signaux électriques, qu'ils soient analogiques ou numériques, ainsi que leurs principales caractéristiques.
 ---
 
-Signaux électriques
+# 1/ Nature des signaux électriques
 
-test
-$$x^2 + \sqrt{5}$$
+## Le signal analogique
 
-```js
-console.log("test");
+Un signal analogique (tension ou courant) peut prendre une infinité de valeurs dans un intervalle de temps donné. Cela peut être par exemple une variation de température.
+
+<Image src="https://i.imgur.com/srF2PdD.png" size={500} />
+
+## Le signal logique
+
+Un signal logique ne peut prendre que deux valeurs distinctes. Chaque valeur représente un état logique : l’état logique 0 et l’état logique 1. Cela peut être par exemple un détecteur d’ouverture de porte. La porte est ouverte, le signal est à 1, la porte est fermée, le signal est à 0.
+
+<Image src="https://i.imgur.com/mY6pieF.png" size={500} />
+
+## Le signal numérique
+
+Un signal numérique est un ensemble codé d'informations binaires qui représentent à un instant t une information analogique. Les valeurs analogiques d’un capteur de température par exemple ne peuvent pas être lues directement par un microcontrôleur. Il faudra préalablement les convertir en valeurs numériques grâce à un convertisseur analogique-numérique.
+
+<Image src="https://i.imgur.com/4oh6Hqm.png" size={700} />
+
+# 2/ Forme des signaux électriques
+
+## Le signal continu
+
+C’est un signal analogique dont la valeur reste constante au cours du temps.
+
+<Image src="https://i.imgur.com/opjwghj.png" size={500} />
+
+## Le signal variable quelconque
+
+C’est un signal analogique dont la valeur varie au cours du temps.
+
+<Image src="https://i.imgur.com/SlqNKHq.png" size={500} />
+
+## Le signal périodique
+
+Un signal périodique se reproduit identique à lui-même à intervalles de temps réguliers.
+
+<Image src="https://i.imgur.com/K70iQCI.png" size={500} />
+
+-   La période T d’un signal périodique est la durée qui sépare deux instants consécutifs où le signal se reproduit identiquement à lui-même.La période s’exprime en seconde (s).
+-   La fréquence f d’un signal périodique désigne le nombre de périodes par seconde :
+
+```math
+f = \frac{1}{T}
+```
+
+## Le signal alternatif sinusoïdal
+
+C’est un signal analogique périodique qui a pour équation : $$u(t) = u_{max} \times cos(\omega t + \Phi)$$
+
+<Image src="https://i.imgur.com/99jpW4i.png" size={600} />
+
+-   $$U_{max}$$ est l'amplitude du signal
+-   $$\Phi$$ est la phase à l'origine (en $$rad$$)
+-   $$\omega$$ est la puissance (en $$rad/s$$); elle est exprimée par la relation $$\omega = 2 \times \pi \times f$$
+
+## Le signal rectangulaire
+
+Un signal rectangulaire est un signal binaire périodique.
+
+<Image src="https://i.imgur.com/hKj2OOH.png" size={600} />
+
+On définit le rapport cyclique :
+
+```math
+\alpha = \frac{t_H}{t_B + t_H} = \frac{t_H}{T}
+```
+
+Avec :
+
+-   $$t_H$$ : le temps à l'état haut
+-   $$t_B$$ : le temps à l'état bas
+-   $$T$$ : la période
+
+Le rapport cyclique n’a pas d’unité. Comme sa valeur est toujours comprise entre 0 et 1, on peut l’exprimer sous forme de pourcentage.
+
+#### Remarque :
+
+Un signal rectangulaire dont le rapport cyclique est égal à 0,5 est appelé signal carré.
+
+## Rampe de tension
+
+C’est un signal analogique dont la valeur varie linéairement en fonction du temps.
+
+<Image src="https://i.imgur.com/VWOC2SN.png" size={600} />
+
+On définit la pente :
+
+```math
+p = \frac{U_2 - U_1}{t_2 - t_1}
+```
+
+#### Remarque :
+
+Un signal constitué d’une succession périodique de rampes de tension est appelé signal en dents de scie. Un signal constitué d’une succession périodique de rampes de tension croissantes puis décroissantes est appelé signal triangulaire.
+
+# 2/ Grandeurs caractéristiques
+
+## Valeur moyenne
+
+La valeur moyenne $$U_{moy}$$ d’un signal électrique $$u(t)$$ de période $$T$$ s’obtient par la relation :
+
+```math
+U_{moy} = \frac{Aire}{Periode}
+```
+
+#### Exemple :
+
+<Image src="https://i.imgur.com/mEe3NaH.png" size={450} />
+
+Ici, La valeur moyenne est égale à l'aire du signal à l'état haut + l'aire du signal à l'état sur la période, c'est à dire :
+
+```math
+U_{moy} = \frac{(5 \times 2)+(1 \times (-3))}{3} = 2.33V
+```
+
+# 3/ Cas particulier d'un signal alternatif sinusoïdal
+
+<Image src="https://i.imgur.com/tGYurGu.png" size={550} />
+
+L'aire positive est égale à l'aire négative donc $$U_{moy} = 0$$
+
+## Valeur efficace d'un signal aternatif sinusoïdal
+
+La valeur efficace d'un signal alternatif sinusoïdal est égale à :
+
+```math
+U_{eff} = \frac{U_{max}}{\sqrt{2}}
 ```

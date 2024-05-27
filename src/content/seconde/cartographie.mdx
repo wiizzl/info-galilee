@@ -7,7 +7,7 @@ description: Dans ce chapitre, nous allons étudier le fonctionnement du GPS, de
 
 La géolocalisation est un procédé qui permet de déterminer la position géographique d’un objet ou d’une personne, fixe ou mobile, à la surface de la Terre. Le système de localisation par satellite fonctionne selon le principe de triangulation : la position de l’objet observé est calculée grâce aux signaux échangés entre le récepteur dont il est équipé et un ensemble d’au moins 3 satellites faisant partie d’une constellation. La mesure de temps de parcours de ces signaux permet d’identifier la longitude, la latitude, et l’altitude de l’objet observé, avec une précision pouvant atteindre les 5 mètres.
 
-<Image src="https://i.imgur.com/2OvLOoq.png" alt="Satellite en orbite" width={500} height={500} />
+<Image src="https://i.imgur.com/2OvLOoq.png" alt="Satellite en orbite" size={500} />
 
 Nous comptons de nos jours des milliers de satellites en orbite autour de la Terre. Parmi eux, nous pouvons compter les satellites géostationnaires de constellations :
 
@@ -24,14 +24,14 @@ Afin de comprendre comment fonctionne le principe de géolocalisation, nous allo
 
 Supposons que le récepteur GNSS se trouve à 25000km d'un premier satelite donné. Cela signifie que le récepteur GNSS peut se trouver n'importe où sur le cerle de diamère 5 000km, avec le satellite en tant que centre.
 
-<Image src="https://i.imgur.com/Nl3ZVWI.png" alt="1er satellite" width={200} height={200} />
+<Image src="https://i.imgur.com/Nl3ZVWI.png" alt="1er satellite" size={200} />
 
 ## 2ème satellite
 
 Le boitier va recevoir également un signal d'un second satellite à 20 000km par exemple. Il va en conclure qu'il se trouve
 aussi sur ce cercle. Sa position exacte sera à l'intersection des deux cercles, soit deux possibilités.
 
-<Image src="https://i.imgur.com/vRq5mt4.png" alt="1er satellite" width={200} height={200} />
+<Image src="https://i.imgur.com/vRq5mt4.png" alt="1er satellite" size={200} />
 
 ## 3ème satellite
 
@@ -39,7 +39,7 @@ Afin de déterminer laquelle de ces possibilités est correcte, le dignal d'un t
 
 A l'intersection de ces trois cercles, il n'y a plus qu'un seul point possible dans le plan 2D. Nous venons de géolocaliser notre récepteur !
 
-<Image src="https://i.imgur.com/lPWPisa.png" alt="1er satellite" width={200} height={200} />
+<Image src="https://i.imgur.com/lPWPisa.png" alt="1er satellite" size={200} />
 
 Pour passer à la 3D, un 4eme satellite serait donc nécessaire car l'intersection de 3 sphères donne 2 points.
 
@@ -80,7 +80,7 @@ Les informations contenues dans une trame varient selon le type de trame mais ce
 
 #### Exemple :
 
-<Image src="https://i.imgur.com/YznzqSk.png" alt="1er satellite" width={800} height={800} />
+<Image src="https://i.imgur.com/YznzqSk.png" alt="1er satellite" size={800} />
 
 # 4/ Calcul d'un itinéraire
 
