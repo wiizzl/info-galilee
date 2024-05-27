@@ -121,7 +121,7 @@ function NavDrawer() {
     );
 }
 
-export default function Header({ solid }: { solid: boolean }) {
+export function Header({ solid }: { solid: boolean }) {
     const pathname = usePathname();
 
     const [visible, setVisible] = useState<boolean>(false);

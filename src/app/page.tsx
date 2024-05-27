@@ -2,7 +2,7 @@ import { Book } from "lucide-react";
 import Link from "next/link";
 
 import { Spotlight } from "@/components/aceternity/spotlight";
-import Header from "@/components/header";
+import { Header } from "@/components/header";
 import { WordRotate } from "@/components/magicui/word-rotate";
 import { Section } from "@/components/section";
 import { buttonVariants } from "@/components/ui/button";
