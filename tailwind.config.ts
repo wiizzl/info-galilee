@@ -10,9 +10,7 @@ const config = {
         container: {
             center: true,
             padding: "2rem",
-            screens: {
-                "2xl": "1400px",
-            },
+            screens: { "2xl": "1400px" },
         },
         extend: {
             fontFamily: {
@@ -77,11 +75,20 @@ const config = {
                         transform: "translate(-50%,-40%) scale(1)",
                     },
                 },
+                orbit: {
+                    from: {
+                        transform: "rotate(0deg) translateY(calc(var(--radius) * 1px)) rotate(0deg)",
+                    },
+                    to: {
+                        transform: "rotate(360deg) translateY(calc(var(--radius) * 1px)) rotate(-360deg)",
+                    },
+                },
             },
             animation: {
                 "accordion-down": "accordion-down 0.2s ease-out",
                 "accordion-up": "accordion-up 0.2s ease-out",
                 spotlight: "spotlight 2s ease .75s 1 forwards",
+                orbit: "orbit calc(var(--duration)*1s) linear infinite",
             },
         },
     },

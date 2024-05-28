@@ -23,7 +23,7 @@ export default function Cours() {
                 "Les principaux chapitres sont la mécanique (statique, dynamique, résistance des matériaux), l'électricité et l'électronique (circuits électriques, composants, systèmes de communication), l'automatique, l'informatique (programmation, systèmes embarqués), et la conception assistée par ordinateur (CAO).",
         },
         {
-            title: "Je suis élève en SI. En quoi ce site peut m'être utile ?",
+            title: "Je suis élève en SI. En quoi ce site peut-il m'être utile ?",
             content:
                 "Ce site vous permettra d'accèder aux différents chapitres étudiés en classe. Il peut vous servir pour vos diverses raisons comme par exemple des révisions.",
         },

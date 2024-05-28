@@ -1,8 +1,9 @@
-import { Book } from "lucide-react";
+import { Backpack, Book, BookA, Pen } from "lucide-react";
 import Link from "next/link";
 
 import { Spotlight } from "@/components/aceternity/spotlight";
 import { Header } from "@/components/header";
+import { OrbitingCircles } from "@/components/magicui/orbiting-circle";
 import { WordRotate } from "@/components/magicui/word-rotate";
 import { Section } from "@/components/section";
 import { buttonVariants } from "@/components/ui/button";
@@ -14,7 +15,7 @@ export default function Home() {
         <div className="bg-grid-white/[0.03]">
             <Spotlight className="-top-10 left-60 hidden lg:block" fill="gray" />
             <Header solid={false} />
-            <Section className="mt-14 min-h-screen lg:mt-40">
+            <Section className="mt-14 flex lg:mt-40">
                 <div className="flex flex-col gap-6">
                     <WordRotate
                         className="text-3xl font-bold md:text-5xl lg:text-7xl"
@@ -49,6 +50,20 @@ export default function Home() {
                             Des cours de Seconde, de Première et de Terminale !
                         </p>
                     </div>
+                </div>
+                <div className="relative hidden h-[400px] w-full items-center justify-center lg:flex">
+                    <OrbitingCircles className="size-[40px]" duration={20} delay={20} radius={80}>
+                        <BookA />
+                    </OrbitingCircles>
+                    <OrbitingCircles className="size-[40px]" duration={20} delay={10} radius={80}>
+                        <Backpack />
+                    </OrbitingCircles>
+                    <OrbitingCircles className="size-[50px]" reverse radius={190} duration={20}>
+                        <Pen />
+                    </OrbitingCircles>
+                    <OrbitingCircles className="size-[50px]" reverse radius={190} duration={20} delay={20}>
+                        <Book />
+                    </OrbitingCircles>
                 </div>
             </Section>
         </div>

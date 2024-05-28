@@ -41,9 +41,9 @@ export function WordRotate({
         <div className="overflow-hidden py-2">
             <AnimatePresence mode="wait">
                 <div>
-                    <h1 className={cn(className, "mr-3")}>{children}</h1>
+                    <h1 className={cn(className, "whitespace-nowrap mr-3")}>{children}</h1>
                     <div className="flex items-center">
-                        <h1 className={cn(className, "mr-3")}>{before}</h1>
+                        <h1 className={cn(className, "mr-3 whitespace-nowrap")}>{before}</h1>
                         <motion.h1 key={words[index]} className={cn(className)} {...framerProps}>
                             {words[index]}
                         </motion.h1>

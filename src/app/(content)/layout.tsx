@@ -9,7 +9,7 @@ import config from "@/config.json";
 
 export default function CoursLayout({ children }: PropsWithChildren) {
     return (
-        <div>
+        <>
             <Header solid />
             <Section>
                 <div className="flex-1 md:grid md:grid-cols-[220px_1fr] md:gap-6 lg:grid-cols-[240px_1fr] lg:gap-10">
@@ -36,6 +36,6 @@ export default function CoursLayout({ children }: PropsWithChildren) {
                     <main className="min-h-screen py-10">{children}</main>
                 </div>
             </Section>
-        </div>
+        </>
     );
 }
