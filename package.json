@@ -33,8 +33,7 @@
         "remark-math": "^6.0.0",
         "shiki": "^1.6.0",
         "tailwind-merge": "^2.3.0",
-        "tailwindcss-animate": "^1.0.7",
-        "zustand": "^4.5.2"
+        "tailwindcss-animate": "^1.0.7"
     },
     "devDependencies": {
         "@types/node": "^20",
