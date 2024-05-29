@@ -1,13 +1,20 @@
+"use client";
+
 import { allDocuments } from "contentlayer/generated";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { PropsWithChildren } from "react";
 
 import { Header } from "@/components/header";
 import { Section } from "@/components/section";
 
+import { cn } from "@/lib/utils";
+
 import config from "@/config.json";
 
 export default function CoursLayout({ children }: PropsWithChildren) {
+    const pathname = usePathname();
+
     return (
         <>
             <Header solid />
@@ -23,7 +30,14 @@ export default function CoursLayout({ children }: PropsWithChildren) {
                                             .filter((doc) => doc.type === item)
                                             .map((item, index) => (
                                                 <Link href={`/${config.link[0].href}${item.slug}`} key={index}>
-                                                    <h3 className="text-muted-foreground transition-all hover:ml-1 hover:text-primary/80">
+                                                    <h3
+                                                        className={cn(
+                                                            "transition-all hover:ml-1 hover:text-primary/80",
+                                                            pathname.endsWith(item.slug)
+                                                                ? "text-accent-foreground/80"
+                                                                : "text-muted-foreground",
+                                                        )}
+                                                    >
                                                         {item.title}
                                                     </h3>
                                                 </Link>

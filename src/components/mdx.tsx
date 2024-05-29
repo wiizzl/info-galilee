@@ -66,7 +66,7 @@ const components: Components = {
             src={src}
             alt="Image du cours"
             width={size}
-            height={size}
+            height={size / 2}
             {...props}
         />
     ),
