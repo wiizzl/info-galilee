@@ -78,6 +78,22 @@ export default function Contribute() {
                                 que je devrais par la suite valider. Une fois votre demande validée, les modifications se
                                 publieront automatiquement sur le site.
                             </p>
+                            <div className="flex flex-col gap-2">
+                                <div className="flex flex-col gap-2">
+                                    <p>Pour ajouter une image, utilisez la balise &lt;Image&gt;.</p>
+                                    <code className="rounded-lg bg-secondary p-3">
+                                        &lt;Image href="lien_imgur" size={500}&gt;
+                                    </code>
+                                </div>
+                                <div className="flex flex-col gap-2">
+                                    <p>Pour ajouter une vidéo, utilisez la balise &lt;Video&gt;.</p>
+                                    <code className="rounded-lg bg-secondary p-3">&lt;Video id="id_youtube"&gt;</code>
+                                </div>
+                                <p>
+                                    N'hésitez pas à vous inspirer des cours déjà rédigés pour la syntaxe et la méthode de
+                                    rédaction.
+                                </p>
+                            </div>
                             <p>
                                 Pour toutes questions ou demande d'aide, n'hésitez pas à vous renseigner sur le{" "}
                                 <Link href={config.socials[0].href} target="_blank" className="underline">
