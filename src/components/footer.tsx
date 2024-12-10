@@ -22,7 +22,7 @@ export default function Footer() {
                         <p className="text-xs text-muted-foreground">
                             Code open source sur{" "}
                             <Link href={config.sugar.repo} target="_blank" className="font-bold hover:underline">
-                                GigtHub
+                                GitHub
                             </Link>
                         </p>
                     </div>
